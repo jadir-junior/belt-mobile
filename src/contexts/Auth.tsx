@@ -1,71 +1,71 @@
-import { AuthData, authService } from "../services/authService";
+import { AuthData, authService } from '../services/authService'
 import React, {
   FC,
   createContext,
   useContext,
   useEffect,
-  useState,
-} from "react";
+  useState
+} from 'react'
 
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 type AuthContextData = {
-  authData?: AuthData;
-  loading: boolean;
-  signIn(): Promise<void>;
-  signOut(): Promise<void>;
-};
+  authData?: AuthData
+  loading: boolean
+  signIn(): Promise<void>
+  signOut(): Promise<void>
+}
 
-const AuthContext = createContext<AuthContextData>({} as AuthContextData);
+const AuthContext = createContext<AuthContextData>({} as AuthContextData)
 
 const AuthProvider: FC = ({ children }) => {
-  const [authData, setAuthData] = useState<AuthData>();
+  const [authData, setAuthData] = useState<AuthData>()
 
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    loadStorageData();
-  }, []);
+    loadStorageData()
+  }, [])
 
   async function loadStorageData(): Promise<void> {
     try {
-      const authDataSerialized = await AsyncStorage.getItem("@AuthData");
+      const authDataSerialized = await AsyncStorage.getItem('@AuthData')
       if (authDataSerialized) {
-        const _authData: AuthData = JSON.parse(authDataSerialized);
-        setAuthData(_authData);
+        const _authData: AuthData = JSON.parse(authDataSerialized)
+        setAuthData(_authData)
       }
     } catch (error) {
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
   }
 
   const signIn = async (): Promise<void> => {
-    const _authData = await authService.signIn("johndoe@email.com", "12345");
-    await AsyncStorage.setItem("@AuthData", JSON.stringify(_authData));
-    setAuthData(_authData);
-  };
+    const _authData = await authService.signIn('johndoe@email.com', '12345')
+    await AsyncStorage.setItem('@AuthData', JSON.stringify(_authData))
+    setAuthData(_authData)
+  }
 
   const signOut = async (): Promise<void> => {
-    setAuthData(undefined);
-    await AsyncStorage.removeItem("@AuthData");
-  };
+    setAuthData(undefined)
+    await AsyncStorage.removeItem('@AuthData')
+  }
 
   return (
     <AuthContext.Provider value={{ authData, loading, signIn, signOut }}>
       {children}
     </AuthContext.Provider>
-  );
-};
-
-function useAuth(): AuthContextData {
-  const context = useContext(AuthContext);
-
-  if (!context) {
-    throw new Error("useAuth must be used within an AuthProvider");
-  }
-
-  return context;
+  )
 }
 
-export { AuthProvider, AuthContext, useAuth };
+function useAuth(): AuthContextData {
+  const context = useContext(AuthContext)
+
+  if (!context) {
+    throw new Error('useAuth must be used within an AuthProvider')
+  }
+
+  return context
+}
+
+export { AuthProvider, AuthContext, useAuth }
