@@ -30,15 +30,17 @@ const LoginScreen = () => {
         style={styles.input}
         value={email}
         onChangeText={setEmail}
+        placeholder="Email"
         keyboardType="email-address"
       />
       <TextInput
         style={styles.input}
         value={password}
+        placeholder="Password"
         onChangeText={setPassword}
         secureTextEntry={true}
       />
-      <Button title="Log in" onPress={onSubmit} />
+      <Button title="Log in" onPress={onSubmit} accessibilityLabel="Log in" />
     </SafeAreaView>
   )
 }

@@ -3,7 +3,9 @@ import { {{pascalCase name}} } from './{{pascalCase name}}'
 import { render } from '@testing-library/react-native'
 
 describe('{{pascalCase name}}', () => {
-  it('should', async () => {
-    render(<{{pascalCase name}} />)
+  it('should render default elements', async () => {
+    const { getByText } = render(<{{pascalCase name}} />)
+
+    expect(getByText(/{{ name }}/i)).toBeDefined()
   })
 })
