@@ -9,12 +9,23 @@
     "test": "jest",
     "style:check": "prettier --check '**/*.tsx'",
     "style:fix": "prettier --write '**/*.tsx'",
-    "generate:screen": "yarn plop --plopfile generators/screen.js"
+    "generate:screen": "yarn plop --plopfile generators/screen.js",
+    "prepare": "husky install"
   },
   "jest": {
     "preset": "jest-expo",
     "transformIgnorePatterns": [
       "node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|sentry-expo|native-base)"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*": [
+      "yarn test --findRelatedTests --bail"
     ]
   },
   "dependencies": {
@@ -43,7 +54,9 @@
     "@types/prettier": "^2.4.1",
     "@types/react": "~16.9.35",
     "@types/react-native": "~0.63.2",
+    "husky": "^7.0.2",
     "jest-expo": "^42.1.0",
+    "lint-staged": "^11.2.0",
     "plop": "^2.7.4",
     "prettier": "^2.4.1",
     "reactotron-react-native": "^5.0.0",
