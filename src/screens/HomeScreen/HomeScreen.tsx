@@ -1,9 +1,9 @@
 import { Button, Text, View } from 'react-native'
 
 import React from 'react'
-import { useAuth } from '../contexts/Auth'
+import { useAuth } from '../../contexts/Auth'
 
-export default function HomeScreen() {
+const HomeScreen = () => {
   const auth = useAuth()
 
   return (
@@ -20,3 +20,5 @@ export default function HomeScreen() {
     </View>
   )
 }
+
+export { HomeScreen }

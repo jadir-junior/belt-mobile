@@ -2,9 +2,9 @@ import { Button, StyleSheet, Text, TextInput } from 'react-native'
 import React, { useState } from 'react'
 
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { useAuth } from '../contexts/Auth'
+import { useAuth } from '../../contexts/Auth'
 
-export const LoginScreen = () => {
+const LoginScreen = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -52,3 +52,5 @@ const styles = StyleSheet.create({
     marginBottom: 24
   }
 })
+
+export { LoginScreen }
