@@ -1,22 +1,54 @@
-import { Button, Text, View } from 'react-native'
+import { Button, StyleSheet, Text, TextInput } from 'react-native'
+import React, { useState } from 'react'
 
-import React from 'react'
+import { SafeAreaView } from 'react-native-safe-area-context'
 import { useAuth } from '../contexts/Auth'
 
 export const LoginScreen = () => {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
   const auth = useAuth()
 
+  const onSubmit = () => {
+    if (email && password) {
+      auth.signIn(email, password)
+    }
+  }
+
   return (
-    <View
+    <SafeAreaView
       style={{
         flex: 1,
-        alignItems: 'center',
+        alignItems: 'stretch',
         justifyContent: 'center',
-        backgroundColor: '#d1d1d1'
+        margin: 20
       }}
     >
       <Text>Login Page</Text>
-      <Button title="Log in" onPress={auth.signIn} />
-    </View>
+      <TextInput
+        style={styles.input}
+        value={email}
+        onChangeText={setEmail}
+        keyboardType="email-address"
+      />
+      <TextInput
+        style={styles.input}
+        value={password}
+        onChangeText={setPassword}
+        secureTextEntry={true}
+      />
+      <Button title="Log in" onPress={onSubmit} />
+    </SafeAreaView>
   )
 }
+
+const styles = StyleSheet.create({
+  input: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    padding: 10,
+    marginBottom: 24
+  }
+})

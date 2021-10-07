@@ -1,24 +1,18 @@
-export type AuthData = {
-  token: string;
-  email: string;
-  name: string;
-};
+import axios from 'axios'
 
-const JWTTokenMock =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ikx1Y2FzIEdhcmNleiIsImlhdCI6MTUxNjIzOTAyMn0.oK5FZPULfF-nfZmiumDGiufxf10Fe2KiGe9G5Njoa64";
+export type AuthData = {
+  accessToken: string
+  refreshToken: string
+}
 
 const signIn = (email: string, password: string): Promise<AuthData> => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve({
-        token: JWTTokenMock,
-        email: email,
-        name: "Mick Junior",
-      });
-    }, 1000);
-  });
-};
+  const payload = {
+    email,
+    password
+  }
+  return axios.post(`http://10.0.2.2:3000/login`, payload)
+}
 
 export const authService = {
-  signIn,
-};
+  signIn
+}

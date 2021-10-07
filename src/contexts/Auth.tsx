@@ -12,7 +12,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 type AuthContextData = {
   authData?: AuthData
   loading: boolean
-  signIn(): Promise<void>
+  signIn(email: string, password: string): Promise<void>
   signOut(): Promise<void>
 }
 
@@ -40,10 +40,14 @@ const AuthProvider: FC = ({ children }) => {
     }
   }
 
-  const signIn = async (): Promise<void> => {
-    const _authData = await authService.signIn('johndoe@email.com', '12345')
-    await AsyncStorage.setItem('@AuthData', JSON.stringify(_authData))
-    setAuthData(_authData)
+  const signIn = async (email: string, password: string): Promise<void> => {
+    try {
+      const _authData = await authService.signIn(email, password)
+      await AsyncStorage.setItem('@AuthData', JSON.stringify(_authData))
+      setAuthData(_authData)
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   const signOut = async (): Promise<void> => {
