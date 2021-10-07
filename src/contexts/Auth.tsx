@@ -8,6 +8,7 @@ import React, {
 } from 'react'
 
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import { configureAxiosHeaders } from '../services/api'
 
 type AuthContextData = {
   authData?: AuthData
@@ -32,6 +33,7 @@ const AuthProvider: FC = ({ children }) => {
       const authDataSerialized = await AsyncStorage.getItem('@AuthData')
       if (authDataSerialized) {
         const _authData: AuthData = JSON.parse(authDataSerialized)
+        configureAxiosHeaders(_authData.accessToken)
         setAuthData(_authData)
       }
     } catch (error) {
@@ -44,6 +46,7 @@ const AuthProvider: FC = ({ children }) => {
     try {
       const _authData = await authService.signIn(email, password)
       await AsyncStorage.setItem('@AuthData', JSON.stringify(_authData))
+      configureAxiosHeaders(_authData.accessToken)
       setAuthData(_authData)
     } catch (error) {
       console.log(error)

@@ -1,4 +1,4 @@
-import axios from 'axios'
+import { api } from './api'
 
 export type AuthData = {
   accessToken: string
@@ -10,7 +10,7 @@ const signIn = (email: string, password: string): Promise<AuthData> => {
     email,
     password
   }
-  return axios.post(`http://10.0.2.2:3000/login`, payload)
+  return api.post(`login`, payload).then((response: any) => response.data)
 }
 
 export const authService = {
