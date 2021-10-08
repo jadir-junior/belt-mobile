@@ -33,12 +33,14 @@ const LoginScreen = () => {
         onChangeText={setEmail}
         placeholder="Email"
         keyboardType="email-address"
+        accessibilityLabel="email"
       />
       <S.Input
         value={password}
         placeholder="Password"
         onChangeText={setPassword}
         secureTextEntry={true}
+        accessibilityLabel="password"
       />
       <Button title="Log in" onPress={onSubmit} accessibilityLabel="Log in" />
     </SafeAreaView>
