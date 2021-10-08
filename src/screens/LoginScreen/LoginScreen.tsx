@@ -1,4 +1,6 @@
-import { Button, StyleSheet, Text, TextInput } from 'react-native'
+import * as S from './LoginScreen.styles'
+
+import { Button, Text } from 'react-native'
 import React, { useState } from 'react'
 
 import { SafeAreaView } from 'react-native-safe-area-context'
@@ -26,15 +28,13 @@ const LoginScreen = () => {
       }}
     >
       <Text>Login Page</Text>
-      <TextInput
-        style={styles.input}
+      <S.Input
         value={email}
         onChangeText={setEmail}
         placeholder="Email"
         keyboardType="email-address"
       />
-      <TextInput
-        style={styles.input}
+      <S.Input
         value={password}
         placeholder="Password"
         onChangeText={setPassword}
@@ -44,15 +44,5 @@ const LoginScreen = () => {
     </SafeAreaView>
   )
 }
-
-const styles = StyleSheet.create({
-  input: {
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    padding: 10,
-    marginBottom: 24
-  }
-})
 
 export { LoginScreen }
