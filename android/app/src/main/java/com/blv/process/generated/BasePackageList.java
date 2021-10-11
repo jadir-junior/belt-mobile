@@ -1,4 +1,4 @@
-package com.blv.process.generated;
+package com.belt.process.generated;
 
 import java.util.Arrays;
 import java.util.List;

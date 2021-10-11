@@ -1,4 +1,4 @@
-rootProject.name = 'blv-mobile'
+rootProject.name = 'belt-mobile'
 
 apply from: '../node_modules/react-native-unimodules/gradle.groovy'
 includeUnimodulesProjects()

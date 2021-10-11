@@ -132,7 +132,7 @@ android {
     }
 
     defaultConfig {
-        applicationId 'com.blv.process'
+        applicationId 'com.belt.process'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

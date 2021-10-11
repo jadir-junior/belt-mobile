@@ -8,7 +8,7 @@
     "expo:web": "expo start --web",
     "expo:eject": "expo eject",
     "test": "jest",
-    "test:e2e": "yarn detox test -c android.emu.debug",
+    "test:e2e": "detox test -c android.emu.debug",
     "style:check": "prettier --check '**/*.tsx'",
     "style:fix": "prettier --write '**/*.tsx'",
     "generate:screen": "yarn plop --plopfile generators/screen.js",
@@ -64,6 +64,6 @@
     "typescript": "~4.0.0"
   },
   "private": true,
-  "name": "blv-mobile",
+  "name": "belt-mobile",
   "version": "1.0.0"
 }
