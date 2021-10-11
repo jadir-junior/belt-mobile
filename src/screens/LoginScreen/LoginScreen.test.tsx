@@ -8,7 +8,8 @@ describe('LoginScreen', () => {
       <LoginScreen />
     )
 
-    expect(getByText(/login page/i)).toBeDefined()
+    expect(getByText(/belt/i)).toBeDefined()
+    expect(getByText(/por favor faça login para continuar/i)).toBeDefined()
     expect(getByPlaceholderText(/email/i)).toBeDefined()
     expect(getByPlaceholderText(/password/i)).toBeDefined()
     expect(getByLabelText(/log in/i)).toBeDefined()

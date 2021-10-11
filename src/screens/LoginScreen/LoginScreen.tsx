@@ -3,6 +3,7 @@ import * as S from './LoginScreen.styles'
 import { Button, Text } from 'react-native'
 import React, { useState } from 'react'
 
+import { Paragraph } from '../../components/Paragraph/Paragraph'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { Title } from '../../components/Title/Title'
 import { useAuth } from '../../contexts/Auth'
@@ -32,9 +33,7 @@ const LoginScreen = () => {
         <Title>belt</Title>
       </S.Content>
       <S.Content>
-        <Text style={{ fontFamily: 'DMSansRegular', fontSize: 14 }}>
-          Login Page belt
-        </Text>
+        <Paragraph>Por favor faça login para continuar</Paragraph>
       </S.Content>
       <S.Input
         value={email}
