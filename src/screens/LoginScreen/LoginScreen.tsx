@@ -27,7 +27,10 @@ const LoginScreen = () => {
         margin: 20
       }}
     >
-      <Text>Login Page</Text>
+      <S.Text>belt</S.Text>
+      <Text style={{ fontFamily: 'DMSansRegular', fontSize: 14 }}>
+        Login Page belt
+      </Text>
       <S.Input
         value={email}
         onChangeText={setEmail}
