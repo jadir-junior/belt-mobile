@@ -9,8 +9,6 @@ export const Input = styled.TextInput`
   margin-bottom: 24px;
 `
 
-export const Text = styled.Text`
-  font-family: 'DMSansBold';
-  font-size: 30px;
-  letter-spacing: -1.3px;
+export const Content = styled.View`
+  margin-bottom: 24px;
 `
