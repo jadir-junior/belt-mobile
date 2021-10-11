@@ -11,6 +11,7 @@
     "test:e2e": "detox test -c android.emu.debug",
     "style:check": "prettier --check '**/*.tsx'",
     "style:fix": "prettier --write '**/*.tsx'",
+    "generate:component": "yarn plop --plopfile generators/component.js",
     "generate:screen": "yarn plop --plopfile generators/screen.js",
     "prepare": "husky install",
     "ios": "react-native run-ios"

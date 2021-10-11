@@ -4,6 +4,7 @@ import { Button, Text } from 'react-native'
 import React, { useState } from 'react'
 
 import { SafeAreaView } from 'react-native-safe-area-context'
+import { Title } from '../../components/Title/Title'
 import { useAuth } from '../../contexts/Auth'
 
 const LoginScreen = () => {
@@ -27,10 +28,14 @@ const LoginScreen = () => {
         margin: 20
       }}
     >
-      <S.Text>belt</S.Text>
-      <Text style={{ fontFamily: 'DMSansRegular', fontSize: 14 }}>
-        Login Page belt
-      </Text>
+      <S.Content>
+        <Title>belt</Title>
+      </S.Content>
+      <S.Content>
+        <Text style={{ fontFamily: 'DMSansRegular', fontSize: 14 }}>
+          Login Page belt
+        </Text>
+      </S.Content>
       <S.Input
         value={email}
         onChangeText={setEmail}
