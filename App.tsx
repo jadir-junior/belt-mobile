@@ -3,6 +3,7 @@ import { AuthProvider } from './src/contexts/Auth'
 import React from 'react'
 import Reactotron from 'reactotron-react-native'
 import { Router } from './src/routes/Routes'
+import { useFonts } from 'expo-font'
 
 if (__DEV__) {
   Reactotron.configure().useReactNative().setAsyncStorageHandler!(
@@ -12,6 +13,15 @@ if (__DEV__) {
 }
 
 export default function App() {
+  const [loaded] = useFonts({
+    DMSansRegular: require('./assets/fonts/DMSans-Regular.ttf'),
+    DMSansBold: require('./assets/fonts/DMSans-Bold.ttf')
+  })
+
+  if (!loaded) {
+    return null
+  }
+
   return (
     <AuthProvider>
       <Router />
