@@ -1,8 +1,9 @@
 import * as S from './LoginScreen.styles'
 
-import { Button, Keyboard, Text, View } from 'react-native'
+import { Keyboard, Text, View } from 'react-native'
 import React, { useState } from 'react'
 
+import { Button } from '../../components/Button/Button'
 import { COLORS } from '../../theme/theme'
 import { Input } from '../../components/Input/Input'
 import { MaterialIcons } from '@expo/vector-icons'
@@ -66,7 +67,11 @@ const LoginScreen = () => {
             icon={<MaterialIcons name="lock-outline" size={24} />}
           />
         </S.InputWrapper>
-        <Button title="Log in" onPress={onSubmit} accessibilityLabel="Log in" />
+        <Button
+          title={'Login'}
+          onPress={onSubmit}
+          accessibilityLabel="Log in"
+        />
       </View>
     </TouchableWithoutFeedback>
   )
