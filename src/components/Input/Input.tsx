@@ -6,11 +6,18 @@ import { TextInputProps } from 'react-native'
 
 export type InputProps = {
   icon?: React.ReactNode
+  iconButton?: React.ReactNode
   errorMessage?: string
   onInputChange: (value: string) => void
 } & TextInputProps
 
-const Input = ({ onInputChange, icon, errorMessage, ...props }: InputProps) => {
+const Input = ({
+  onInputChange,
+  icon,
+  iconButton,
+  errorMessage,
+  ...props
+}: InputProps) => {
   const [focus, setFocus] = useState(false)
   const [value, setValue] = useState('')
 
@@ -38,6 +45,7 @@ const Input = ({ onInputChange, icon, errorMessage, ...props }: InputProps) => {
             {icon}
           </S.Icon>
         )}
+        {!!iconButton && <S.IconButton>{iconButton}</S.IconButton>}
       </S.InputWrapper>
     </S.Wrapper>
   )

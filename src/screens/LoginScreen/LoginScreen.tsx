@@ -6,8 +6,8 @@ import React, { useState } from 'react'
 import { Button } from '../../components/Button/Button'
 import { COLORS } from '../../theme/theme'
 import { Chip } from '../../components/Chip/Chip'
+import { FormLogin } from '../../components/Auth/FormLogin/FormLogin'
 import { Input } from '../../components/Input/Input'
-import { MaterialIcons } from '@expo/vector-icons'
 import { Paragraph } from '../../components/Paragraph/Paragraph'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { Title } from '../../components/Title/Title'
@@ -50,32 +50,7 @@ const LoginScreen = () => {
         <S.Content>
           <Paragraph>Por favor faça login para continuar</Paragraph>
         </S.Content>
-        <S.InputWrapper>
-          <Input
-            placeholder="Email"
-            accessibilityLabel="password"
-            keyboardType="email-address"
-            icon={<MaterialIcons name="mail-outline" size={24} />}
-            onInputChange={(value) => setEmail(value)}
-          />
-        </S.InputWrapper>
-        <S.InputWrapper>
-          <Input
-            placeholder="Password"
-            accessibilityLabel="password"
-            secureTextEntry={true}
-            onInputChange={(value) => setPassword(value)}
-            icon={<MaterialIcons name="lock-outline" size={24} />}
-          />
-        </S.InputWrapper>
-        <Button
-          title={'Login'}
-          onPress={onSubmit}
-          accessibilityLabel="Log in"
-        />
-      </View>
-      <View style={{ display: 'flex' }}>
-        <Chip title="default" />
+        <FormLogin />
       </View>
     </TouchableWithoutFeedback>
   )

@@ -46,6 +46,10 @@ export const Icon = styled(MaterialIcons)<IconWrapperProps>`
   `}
 `
 
+export const IconButton = styled.View`
+  padding: 0 8px;
+`
+
 export const Input = styled(TextInput)`
   color: ${COLORS_TEXT.PRIMARY};
   font-family: ${FONT_FAMILY.REGULAR};
