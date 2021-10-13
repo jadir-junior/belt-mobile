@@ -73,7 +73,7 @@ describe('Input', () => {
     const { getByTestId } = render(
       <Input
         placeholder="Email"
-        errorMessage={'email invalido'}
+        error={'email invalido'}
         icon={<MaterialIcons name="mail-outline" size={24} />}
       />
     )

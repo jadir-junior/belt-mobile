@@ -8,5 +8,5 @@ export const fieldsValidationSchema = yup.object().shape({
   password: yup
     .string()
     .required('A senha é obrigatoria')
-    .min(6, 'A senha deve conter pelo 6 digitos')
+    .min(6, 'A senha deve conter pelo menos 6 digitos')
 })

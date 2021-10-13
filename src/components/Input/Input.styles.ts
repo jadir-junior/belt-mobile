@@ -57,3 +57,7 @@ export const Input = styled(TextInput)`
   flex: 1;
   padding: 16px 16px;
 `
+
+export const ErrorWrapper = styled.View`
+  margin-top: 4px;
+`

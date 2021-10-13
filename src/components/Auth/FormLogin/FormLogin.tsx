@@ -15,7 +15,11 @@ type SignIn = {
   password: string
 }
 
-const FormLogin = () => {
+export type FormLoginProps = {
+  onSubmit: (payload: SignIn) => void
+}
+
+const FormLogin = ({ onSubmit }: FormLoginProps) => {
   const {
     control,
     handleSubmit,
@@ -24,14 +28,14 @@ const FormLogin = () => {
     resolver: yupResolver(fieldsValidationSchema)
   })
 
-  const [securityText, setSecurityText] = useState(true)
+  const [securityTextHide, setSecurityTextHide] = useState(true)
 
   const toogleSecurityText = async () => {
-    setSecurityText(!securityText)
+    setSecurityTextHide(!securityTextHide)
   }
 
-  const onSubmit = (data: SignIn) => {
-    console.log(data)
+  const submit = (data: SignIn) => {
+    onSubmit(data)
   }
 
   return (
@@ -48,7 +52,7 @@ const FormLogin = () => {
               icon={<MaterialIcons name="mail-outline" size={24} />}
               value={value}
               onChangeText={(value) => onChange(value)}
-              errorMessage={errors?.email?.message}
+              error={errors?.email?.message}
             />
           )}
         />
@@ -61,13 +65,16 @@ const FormLogin = () => {
             <Input
               accessibilityLabel="password"
               placeholder="Senha"
-              secureTextEntry={securityText}
+              secureTextEntry={securityTextHide}
+              error={errors?.password?.message}
               iconButton={
                 <IconButton
+                  testID="securityPassword"
                   onPress={toogleSecurityText}
+                  error={errors?.password?.message}
                   icon={
                     <MaterialIcons
-                      name={securityText ? 'lock-outline' : 'lock-open'}
+                      name={securityTextHide ? 'lock-outline' : 'lock-open'}
                       size={24}
                     />
                   }
@@ -80,7 +87,7 @@ const FormLogin = () => {
         />
       </S.InputWrapper>
       <S.ButtonWrapper>
-        <Button title="Login" onPress={handleSubmit(onSubmit)} />
+        <Button title="Login" onPress={handleSubmit(submit)} />
       </S.ButtonWrapper>
     </S.Wrapper>
   )

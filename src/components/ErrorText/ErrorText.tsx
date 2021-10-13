@@ -1,14 +1,13 @@
 import * as S from './ErrorText.styles'
 
 import React from 'react'
-import { Text } from 'react-native'
 
 export type ErrorTextProps = {
-  errorMessage: string
+  children: React.ReactNode
 }
 
-const ErrorText = ({ errorMessage }: ErrorTextProps) => (
-  <S.Wrapper>{errorMessage}</S.Wrapper>
+const ErrorText = ({ children }: ErrorTextProps) => (
+  <S.Wrapper>{children}</S.Wrapper>
 )
 
 export { ErrorText }
