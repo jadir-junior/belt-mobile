@@ -1,30 +1,16 @@
 import * as S from './Input.styles'
 
 import React, { useState } from 'react'
-
-import { TextInputProps } from 'react-native'
+import { Text, TextInputProps } from 'react-native'
 
 export type InputProps = {
   icon?: React.ReactNode
   iconButton?: React.ReactNode
   errorMessage?: string
-  onInputChange: (value: string) => void
 } & TextInputProps
 
-const Input = ({
-  onInputChange,
-  icon,
-  iconButton,
-  errorMessage,
-  ...props
-}: InputProps) => {
+const Input = ({ icon, iconButton, errorMessage, ...props }: InputProps) => {
   const [focus, setFocus] = useState(false)
-  const [value, setValue] = useState('')
-
-  const onChangeText = (text: string) => {
-    setValue(text)
-    onInputChange(text)
-  }
 
   return (
     <S.Wrapper>
@@ -36,8 +22,6 @@ const Input = ({
         <S.Input
           onFocus={() => setFocus(true)}
           onBlur={() => setFocus(false)}
-          onChangeText={onChangeText}
-          value={value}
           {...props}
         />
         {!!icon && (
@@ -47,6 +31,7 @@ const Input = ({
         )}
         {!!iconButton && <S.IconButton>{iconButton}</S.IconButton>}
       </S.InputWrapper>
+      {!!errorMessage && <Text>{errorMessage}</Text>}
     </S.Wrapper>
   )
 }
