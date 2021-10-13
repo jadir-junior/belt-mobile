@@ -5,6 +5,7 @@ import React, { useState } from 'react'
 
 import { Button } from '../../components/Button/Button'
 import { COLORS } from '../../theme/theme'
+import { Chip } from '../../components/Chip/Chip'
 import { Input } from '../../components/Input/Input'
 import { MaterialIcons } from '@expo/vector-icons'
 import { Paragraph } from '../../components/Paragraph/Paragraph'
@@ -72,6 +73,9 @@ const LoginScreen = () => {
           onPress={onSubmit}
           accessibilityLabel="Log in"
         />
+      </View>
+      <View style={{ display: 'flex' }}>
+        <Chip title="default" />
       </View>
     </TouchableWithoutFeedback>
   )
