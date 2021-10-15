@@ -1,6 +1,6 @@
 import { HomeScreen } from './HomeScreen'
 import React from 'react'
-import { render } from '@testing-library/react-native'
+import { render } from '../../utils/tests/test-utils'
 
 describe('HomeScreen', () => {
   it('should render default elements', async () => {

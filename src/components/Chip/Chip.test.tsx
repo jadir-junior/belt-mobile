@@ -1,8 +1,6 @@
-import '@testing-library/jest-native/extend-expect'
-
 import { Chip } from './Chip'
 import React from 'react'
-import { render } from '@testing-library/react-native'
+import { render } from '../../utils/tests/test-utils'
 
 describe('Chip', () => {
   it('should render default elements', async () => {
