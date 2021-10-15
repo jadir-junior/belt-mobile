@@ -7,6 +7,9 @@
     "expo:ios": "expo start --ios",
     "expo:web": "expo start --web",
     "expo:eject": "expo eject",
+    "test:dev": "jest --watch --coverage=false",
+    "test:debug": "jest -o --watch --coverage=false",
+    "test:update:snapshoots": "jest -u --coverage=false",
     "test": "jest",
     "test:e2e": "detox test -c android.emu.debug",
     "style:check": "prettier --check '**/*.tsx'",
@@ -23,6 +26,14 @@
     ],
     "setupFilesAfterEnv": [
       "<rootDir>/src/setupTests.js"
+    ],
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/*.{ts,tsx}",
+      "!**/coverage/**",
+      "!**/node_modules/**",
+      "!**/babel.config.js",
+      "!**/jest.setup.js"
     ]
   },
   "dependencies": {

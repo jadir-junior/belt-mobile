@@ -1,4 +1,4 @@
-import { act, fireEvent, render, waitFor } from '@testing-library/react-native'
+import { fireEvent, render, waitFor } from '../../../utils/tests/test-utils'
 
 import { FormLogin } from './FormLogin'
 import React from 'react'

@@ -1,6 +1,4 @@
-import '@testing-library/jest-native/extend-expect'
-
-import { act, fireEvent, render, waitFor } from '@testing-library/react-native'
+import { act, fireEvent, render, waitFor } from '../../utils/tests/test-utils'
 
 import { Input } from './Input'
 import { MaterialIcons } from '@expo/vector-icons'

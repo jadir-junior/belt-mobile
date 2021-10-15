@@ -1,6 +1,6 @@
 import React from 'react'
 import { Title } from './Title'
-import { render } from '@testing-library/react-native'
+import { render } from '../../utils/tests/test-utils'
 
 describe('Title', () => {
   it('should render default elements', async () => {
