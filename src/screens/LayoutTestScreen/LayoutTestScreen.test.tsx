@@ -1,6 +1,6 @@
-import React from 'react'
 import { LayoutTestScreen } from './LayoutTestScreen'
-import { render } from '@testing-library/react-native'
+import React from 'react'
+import { render } from '../../utils/tests/test-utils'
 
 describe('LayoutTestScreen', () => {
   it('should render default elements', async () => {

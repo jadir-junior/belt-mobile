@@ -7,6 +7,9 @@
     "expo:ios": "expo start --ios",
     "expo:web": "expo start --web",
     "expo:eject": "expo eject",
+    "test:dev": "jest --watch --coverage=false",
+    "test:debug": "jest -o --watch --coverage=false",
+    "test:update:snapshoots": "jest -u --coverage=false",
     "test": "jest",
     "test:e2e": "detox test -c android.emu.debug",
     "style:check": "prettier --check '**/*.tsx'",
@@ -20,6 +23,14 @@
     "preset": "jest-expo",
     "transformIgnorePatterns": [
       "node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|sentry-expo|native-base)"
+    ],
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/*.{ts,tsx}",
+      "!**/coverage/**",
+      "!**/node_modules/**",
+      "!**/babel.config.js",
+      "!**/jest.setup.js"
     ]
   },
   "dependencies": {

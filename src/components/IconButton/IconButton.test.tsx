@@ -1,9 +1,7 @@
-import '@testing-library/jest-native/extend-expect'
-
 import { IconButton } from './IconButton'
 import { MaterialIcons } from '@expo/vector-icons'
 import React from 'react'
-import { render } from '@testing-library/react-native'
+import { render } from '../../utils/tests/test-utils'
 
 describe('IconButton', () => {
   it('should render default elements', async () => {

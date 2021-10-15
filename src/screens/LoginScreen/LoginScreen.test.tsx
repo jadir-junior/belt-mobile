@@ -1,6 +1,6 @@
 import { LoginScreen } from './LoginScreen'
 import React from 'react'
-import { render } from '@testing-library/react-native'
+import { render } from '../../utils/tests/test-utils'
 
 describe('LoginScreen', () => {
   it('should renders elements default', async () => {

@@ -2,7 +2,7 @@ import '@testing-library/jest-native/extend-expect'
 
 import { ErrorText } from './ErrorText'
 import React from 'react'
-import { render } from '@testing-library/react-native'
+import { render } from '../../utils/tests/test-utils'
 
 describe('ErrorText', () => {
   it('should render default elements', async () => {
