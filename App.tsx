@@ -6,6 +6,7 @@ import { Router } from './src/routes/Routes'
 import { useFonts } from 'expo-font'
 
 if (__DEV__) {
+  // Reacttron configuration
   Reactotron.configure().useReactNative().setAsyncStorageHandler!(
     AsyncStorage
   ).connect()
