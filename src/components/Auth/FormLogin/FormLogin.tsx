@@ -98,7 +98,11 @@ const FormLogin = ({ onSubmit, error }: FormLoginProps) => {
         )}
       </S.ErrorWrapper>
       <S.ButtonWrapper>
-        <Button title="Login" onPress={handleSubmit(submit)} />
+        <Button
+          title="Login"
+          onPress={handleSubmit(submit)}
+          accessibilityLabel="login"
+        />
       </S.ButtonWrapper>
     </S.Wrapper>
   )
