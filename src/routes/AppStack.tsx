@@ -1,5 +1,6 @@
 import { COLORS, FONT_FAMILY } from '../theme/theme'
 
+import { DrawerContent } from '../components/DrawerContent/DrawerContent'
 import { HomeScreen } from '../screens/HomeScreen/HomeScreen'
 import { IconButton } from '../components/IconButton/IconButton'
 import { MaterialIcons } from '@expo/vector-icons'
@@ -14,13 +15,17 @@ const Drawer = createDrawerNavigator()
 
 const Root = () => (
   <Drawer.Navigator
+    drawerContent={(props) => <DrawerContent />}
     screenOptions={{
       headerTintColor: COLORS.PRIMARY,
       headerTitleStyle: {
         fontFamily: FONT_FAMILY.BOLD,
         fontSize: 30
       },
-      headerTitleAlign: 'center'
+      headerTitleAlign: 'center',
+      headerStyle: {
+        elevation: 0
+      }
     }}
   >
     <Drawer.Screen
@@ -28,6 +33,11 @@ const Root = () => (
       component={HomeScreen}
       options={{
         title: 'belt',
+        headerTitleStyle: {
+          letterSpacing: -1.3,
+          fontSize: 30,
+          fontFamily: FONT_FAMILY.BOLD
+        },
         headerRightContainerStyle: {
           alignItems: 'flex-start'
         },

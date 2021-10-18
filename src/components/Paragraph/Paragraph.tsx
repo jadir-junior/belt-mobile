@@ -4,10 +4,11 @@ import React from 'react'
 
 export type ParagraphProps = {
   children: React.ReactNode
+  color?: 'default' | 'primary'
 }
 
-const Paragraph = ({ children }: ParagraphProps) => (
-  <S.Wrapper>{children}</S.Wrapper>
+const Paragraph = ({ children, color = 'default' }: ParagraphProps) => (
+  <S.Wrapper color={color}>{children}</S.Wrapper>
 )
 
 export { Paragraph }
