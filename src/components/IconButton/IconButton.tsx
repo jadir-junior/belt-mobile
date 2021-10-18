@@ -1,18 +1,26 @@
 import * as S from './IconButton.styles'
 
-import { Text, TouchableOpacityProps } from 'react-native'
-
 import React from 'react'
+import { TouchableOpacityProps } from 'react-native'
 
 export type IconButtonProps = {
   icon: React.ReactNode
-  onPress?: () => void
   error?: string
+  size?: number
+  color?: 'default' | 'primary'
+  onPress?: () => void
 } & TouchableOpacityProps
 
-const IconButton = ({ icon, error, onPress, ...props }: IconButtonProps) => (
+const IconButton = ({
+  icon,
+  error,
+  size = 24,
+  color = 'default',
+  onPress,
+  ...props
+}: IconButtonProps) => (
   <S.Wrapper {...props} onPress={onPress} activeOpacity={0.6}>
-    <S.Icon error={!!error} testID="icon">
+    <S.Icon error={!!error} testID="icon" size={size} color={color}>
       {icon}
     </S.Icon>
   </S.Wrapper>

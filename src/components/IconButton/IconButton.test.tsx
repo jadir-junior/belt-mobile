@@ -8,7 +8,7 @@ describe('IconButton', () => {
     const { getByTestId } = render(
       <IconButton
         testID="iconButton"
-        icon={<MaterialIcons name="mail-outline" size={24} />}
+        icon={<MaterialIcons name="mail-outline" />}
       />
     )
 
@@ -17,7 +17,7 @@ describe('IconButton', () => {
 
   it('should render a icon with color default', async () => {
     const { getByTestId } = render(
-      <IconButton icon={<MaterialIcons name="mail-outline" size={24} />} />
+      <IconButton icon={<MaterialIcons name="mail-outline" />} />
     )
 
     expect(getByTestId('icon')).toHaveStyle({
@@ -29,12 +29,45 @@ describe('IconButton', () => {
     const { getByTestId } = render(
       <IconButton
         error="email invalido"
-        icon={<MaterialIcons name="mail-outline" size={24} />}
+        icon={<MaterialIcons name="mail-outline" />}
       />
     )
 
     expect(getByTestId('icon')).toHaveStyle({
       color: '#D61B0A'
+    })
+  })
+
+  it('should render a icon with a color primary', async () => {
+    const { getByTestId } = render(
+      <IconButton
+        color="primary"
+        icon={<MaterialIcons name="mail-outline" />}
+      />
+    )
+
+    expect(getByTestId('icon')).toHaveStyle({
+      color: '#040404'
+    })
+  })
+
+  it('should render a icon without size with 24px', async () => {
+    const { getByTestId } = render(
+      <IconButton icon={<MaterialIcons name="mail-outline" />} />
+    )
+
+    expect(getByTestId(/icon/i)).toHaveStyle({
+      fontSize: 24
+    })
+  })
+
+  it('should render a icon with size 30px', async () => {
+    const { getByTestId } = render(
+      <IconButton size={30} icon={<MaterialIcons name="mail-outline" />} />
+    )
+
+    expect(getByTestId(/icon/i)).toHaveStyle({
+      fontSize: 30
     })
   })
 })
