@@ -2,7 +2,9 @@ import { COLORS } from '../../theme/theme'
 import React from 'react'
 import styled from 'styled-components/native'
 
-export const Wrapper = styled.View``
+export const Wrapper = styled.View`
+  padding-bottom: 16px;
+`
 
 export const Photo = styled.View`
   width: 76px;

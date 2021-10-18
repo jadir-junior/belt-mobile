@@ -3,6 +3,7 @@ import * as S from './DrawerContent.styles'
 import React, { useEffect, useState } from 'react'
 import { User, getUser } from '../../services/user.service'
 
+import { Divider } from '../Divider/Divider'
 import { Text } from 'react-native'
 import { UserInfo } from '../UserInfo/UserInfo'
 
@@ -22,7 +23,12 @@ const DrawerContent = () => {
     getUserInfo()
   }, [])
 
-  return <S.Wrapper>{user && <UserInfo {...user} />}</S.Wrapper>
+  return (
+    <S.Wrapper>
+      {user && <UserInfo {...user} />}
+      <Divider />
+    </S.Wrapper>
+  )
 }
 
 export { DrawerContent }
