@@ -4,12 +4,15 @@ import React, { useEffect, useState } from 'react'
 import { User, getUser } from '../../services/user.service'
 
 import { Divider } from '../Divider/Divider'
+import { DrawerFooter } from '../DrawerFooter/DrawerFooter'
 import { ListItem } from '../ListItem/ListItem'
 import { MaterialIcons } from '@expo/vector-icons'
 import { UserInfo } from '../UserInfo/UserInfo'
+import { useAuth } from '../../contexts/Auth'
 
 const DrawerContent = () => {
   const [user, setUser] = useState<User>()
+  const auth = useAuth()
 
   useEffect(() => {
     async function getUserInfo(): Promise<void> {
@@ -33,7 +36,16 @@ const DrawerContent = () => {
           title="Disp. produtos para venda"
           icon={<MaterialIcons name="inventory" size={24} />}
         ></ListItem>
+        <ListItem
+          title="Sair"
+          onPress={auth.signOut}
+          icon={<MaterialIcons name="logout" size={24} />}
+        ></ListItem>
       </S.ListContent>
+      <Divider />
+      <S.FooterContent>
+        <DrawerFooter />
+      </S.FooterContent>
     </S.Wrapper>
   )
 }

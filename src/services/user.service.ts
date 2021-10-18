@@ -22,10 +22,13 @@ export const getUser = async (): Promise<User | undefined> => {
       const tokens: Tokens = JSON.parse(authDataSerialized)
       const accessToken = tokens.accessToken
       const decoded: any = jwtDecode(accessToken)
+      console.log(decoded)
       const user: User = {
         _id: decoded._id,
         email: decoded.email,
-        permissionFlags: decoded.permissionFlags
+        permissionFlags: decoded.permissionFlags,
+        name: decoded?.name,
+        position: decoded?.position
       }
       return user
     }

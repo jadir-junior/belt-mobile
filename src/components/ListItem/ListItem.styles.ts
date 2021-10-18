@@ -3,7 +3,7 @@ import { MaterialIcons } from '@expo/vector-icons'
 import React from 'react'
 import styled from 'styled-components/native'
 
-export const Wrapper = styled.TouchableHighlight``
+export const Wrapper = styled.TouchableOpacity``
 
 export const Content = styled.View`
   flex-direction: row;

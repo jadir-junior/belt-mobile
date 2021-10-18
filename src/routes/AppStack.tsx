@@ -30,6 +30,11 @@ const Root = () => (
       component={HomeScreen}
       options={{
         title: 'belt',
+        headerTitleStyle: {
+          letterSpacing: -1.3,
+          fontSize: 30,
+          fontFamily: FONT_FAMILY.BOLD
+        },
         headerRightContainerStyle: {
           alignItems: 'flex-start'
         },

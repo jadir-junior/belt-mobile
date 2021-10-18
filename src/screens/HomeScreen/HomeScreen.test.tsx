@@ -4,8 +4,8 @@ import { render } from '../../utils/tests/test-utils'
 
 describe('HomeScreen', () => {
   it('should render default elements', async () => {
-    const { getByText } = render(<HomeScreen />)
+    const { getByLabelText } = render(<HomeScreen />)
 
-    expect(getByText(/home screen/i)).toBeDefined()
+    expect(getByLabelText(/home/i)).toBeDefined()
   })
 })
