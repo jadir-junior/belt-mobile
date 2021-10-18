@@ -14,7 +14,7 @@
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
 		96905EF65AED1B983A6B3ABC /* libPods-beltmobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58EEBF8E8E6FB1BC6CAF49B5 /* libPods-beltmobile.a */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
-		17434C3D31964D999CBBE597 /* noop-file.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14806BFA85DD4A1C8BE34BFC /* noop-file.swift */; };
+		84D7D1D268E24DF9A8F5CD55 /* noop-file.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C52F6922A05496190DF1412 /* noop-file.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,8 +33,8 @@
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		14806BFA85DD4A1C8BE34BFC /* noop-file.swift */ = {isa = PBXFileReference; name = "noop-file.swift"; path = "beltmobile/noop-file.swift"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.swift; explicitFileType = undefined; includeInIndex = 0; };
-		E14CE6D9E93040C4812E2186 /* beltmobile-Bridging-Header.h */ = {isa = PBXFileReference; name = "beltmobile-Bridging-Header.h"; path = "beltmobile/beltmobile-Bridging-Header.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		7C52F6922A05496190DF1412 /* noop-file.swift */ = {isa = PBXFileReference; name = "noop-file.swift"; path = "beltmobile/noop-file.swift"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.swift; explicitFileType = undefined; includeInIndex = 0; };
+		51079109449A411492B6408D /* beltmobile-Bridging-Header.h */ = {isa = PBXFileReference; name = "beltmobile-Bridging-Header.h"; path = "beltmobile/beltmobile-Bridging-Header.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +61,8 @@
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
 				AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */,
-				14806BFA85DD4A1C8BE34BFC /* noop-file.swift */,
-				E14CE6D9E93040C4812E2186 /* beltmobile-Bridging-Header.h */,
+				7C52F6922A05496190DF1412 /* noop-file.swift */,
+				51079109449A411492B6408D /* beltmobile-Bridging-Header.h */,
 			);
 			name = beltmobile;
 			sourceTree = "<group>";
@@ -188,7 +188,7 @@
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
-				C52FE5121A17401EA713F6BD /* beltmobile-Bridging-Header.h in Resources */,
+				870247FBE2814404BC8E935C /* beltmobile-Bridging-Header.h in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,7 +277,7 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
-				17434C3D31964D999CBBE597 /* noop-file.swift in Sources */,
+				84D7D1D268E24DF9A8F5CD55 /* noop-file.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

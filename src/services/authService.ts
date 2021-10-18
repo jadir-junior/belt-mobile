@@ -10,7 +10,7 @@ const signIn = (email: string, password: string): Promise<AuthData> => {
     email,
     password
   }
-  return api.post(`login`, payload).then((response: any) => response.data)
+  return api.post(`login`, payload)
 }
 
 export const authService = {

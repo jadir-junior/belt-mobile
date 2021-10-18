@@ -1,30 +1,22 @@
 import * as S from './LoginScreen.styles'
 
-import { Keyboard, Text, View } from 'react-native'
-import React, { useState } from 'react'
+import {
+  FormLogin,
+  SignInProps
+} from '../../components/Auth/FormLogin/FormLogin'
+import { Keyboard, View } from 'react-native'
 
-import { Button } from '../../components/Button/Button'
-import { COLORS } from '../../theme/theme'
-import { Chip } from '../../components/Chip/Chip'
-import { FormLogin } from '../../components/Auth/FormLogin/FormLogin'
-import { Input } from '../../components/Input/Input'
 import { Paragraph } from '../../components/Paragraph/Paragraph'
-import { SafeAreaView } from 'react-native-safe-area-context'
+import React from 'react'
 import { Title } from '../../components/Title/Title'
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
 import { useAuth } from '../../contexts/Auth'
 
 const LoginScreen = () => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const { errors, signIn } = useAuth()
 
-  const auth = useAuth()
-
-  const onSubmit = () => {
-    console.log(email)
-    if (email && password) {
-      auth.signIn(email, password)
-    }
+  const onSubmit = (payload: SignInProps) => {
+    signIn(payload.email, payload.password)
   }
 
   return (
@@ -50,7 +42,7 @@ const LoginScreen = () => {
         <S.Content>
           <Paragraph>Por favor faça login para continuar</Paragraph>
         </S.Content>
-        <FormLogin />
+        <FormLogin onSubmit={onSubmit} error={errors} />
       </View>
     </TouchableWithoutFeedback>
   )

@@ -4,22 +4,25 @@ import { Controller, useForm } from 'react-hook-form'
 import React, { useState } from 'react'
 
 import { Button } from '../../Button/Button'
+import { Error } from '../../../utils/errors/errors'
+import { ErrorText } from '../../ErrorText/ErrorText'
 import { IconButton } from '../../IconButton/IconButton'
 import { Input } from '../../Input/Input'
 import { MaterialIcons } from '@expo/vector-icons'
 import { fieldsValidationSchema } from '../../../utils/validations/auth'
 import { yupResolver } from '@hookform/resolvers/yup'
 
-type SignIn = {
+export type SignInProps = {
   email: string
   password: string
 }
 
 export type FormLoginProps = {
-  onSubmit: (payload: SignIn) => void
+  onSubmit: (payload: SignInProps) => void
+  error?: Error
 }
 
-const FormLogin = ({ onSubmit }: FormLoginProps) => {
+const FormLogin = ({ onSubmit, error }: FormLoginProps) => {
   const {
     control,
     handleSubmit,
@@ -34,7 +37,7 @@ const FormLogin = ({ onSubmit }: FormLoginProps) => {
     setSecurityTextHide(!securityTextHide)
   }
 
-  const submit = (data: SignIn) => {
+  const submit = (data: SignInProps) => {
     onSubmit(data)
   }
 
@@ -86,8 +89,20 @@ const FormLogin = ({ onSubmit }: FormLoginProps) => {
           )}
         />
       </S.InputWrapper>
+      <S.ErrorWrapper>
+        {error?.param === 'email' && (
+          <ErrorText>Não existe esse email cadastrado</ErrorText>
+        )}
+        {error?.param === 'password' && (
+          <ErrorText>A senha esta incorreta</ErrorText>
+        )}
+      </S.ErrorWrapper>
       <S.ButtonWrapper>
-        <Button title="Login" onPress={handleSubmit(submit)} />
+        <Button
+          title="Login"
+          onPress={handleSubmit(submit)}
+          accessibilityLabel="login"
+        />
       </S.ButtonWrapper>
     </S.Wrapper>
   )
