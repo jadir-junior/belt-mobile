@@ -22,7 +22,10 @@ const Root = () => (
         fontFamily: FONT_FAMILY.BOLD,
         fontSize: 30
       },
-      headerTitleAlign: 'center'
+      headerTitleAlign: 'center',
+      headerStyle: {
+        elevation: 0
+      }
     }}
   >
     <Drawer.Screen

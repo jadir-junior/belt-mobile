@@ -1,9 +1,16 @@
-import { Button, Text, View } from 'react-native'
+import { Button, Text, View, ViewProps } from 'react-native'
 
+import { Container } from '../../components/Container/Container'
 import React from 'react'
 
-const HomeScreen = () => {
-  return <View accessibilityLabel="home"></View>
+export type HomeScreenProps = ViewProps
+
+const HomeScreen = ({ ...props }: HomeScreenProps) => {
+  return (
+    <Container>
+      <View {...props}></View>
+    </Container>
+  )
 }
 
 export { HomeScreen }
