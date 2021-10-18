@@ -1,0 +1,21 @@
+import * as S from './ListItem.styles'
+
+import { Paragraph } from '../Paragraph/Paragraph'
+import React from 'react'
+import { TouchableHighlightProps } from 'react-native'
+
+export type ListItemProps = {
+  title: string
+  icon?: React.ReactNode
+} & TouchableHighlightProps
+
+const ListItem = ({ title, icon, ...props }: ListItemProps) => (
+  <S.Wrapper {...props}>
+    <S.Content>
+      {icon && <S.Icon>{icon}</S.Icon>}
+      <Paragraph color="primary">{title}</Paragraph>
+    </S.Content>
+  </S.Wrapper>
+)
+
+export { ListItem }

@@ -4,7 +4,8 @@ import React, { useEffect, useState } from 'react'
 import { User, getUser } from '../../services/user.service'
 
 import { Divider } from '../Divider/Divider'
-import { Text } from 'react-native'
+import { ListItem } from '../ListItem/ListItem'
+import { MaterialIcons } from '@expo/vector-icons'
 import { UserInfo } from '../UserInfo/UserInfo'
 
 const DrawerContent = () => {
@@ -27,6 +28,12 @@ const DrawerContent = () => {
     <S.Wrapper>
       {user && <UserInfo {...user} />}
       <Divider />
+      <S.ListContent>
+        <ListItem
+          title="Disp. produtos para venda"
+          icon={<MaterialIcons name="inventory" size={24} />}
+        ></ListItem>
+      </S.ListContent>
     </S.Wrapper>
   )
 }
