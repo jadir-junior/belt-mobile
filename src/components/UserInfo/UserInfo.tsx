@@ -5,14 +5,18 @@ import { Paragraph } from '../Paragraph/Paragraph'
 import React from 'react'
 import { Title } from '../Title/Title'
 
-const UserInfo = () => (
+export type UserInfoProps = {
+  photo?: string
+  name?: string
+  position?: string
+}
+
+const UserInfo = ({ name, photo, position }: UserInfoProps) => (
   <S.Wrapper>
     <Avatar size={76} />
-    <S.TitleWrapper>
-      <Title>Nome Sobrenome</Title>
-    </S.TitleWrapper>
+    <S.TitleWrapper>{name && <Title>{name}</Title>}</S.TitleWrapper>
     <S.PositionWrapper>
-      <Paragraph color="primary">Diretora Financeira</Paragraph>
+      {position && <Paragraph color="primary">{position}</Paragraph>}
     </S.PositionWrapper>
   </S.Wrapper>
 )

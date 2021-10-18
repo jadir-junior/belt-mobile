@@ -8,7 +8,7 @@ export const Wrapper = styled.View<AvatarProps>`
   ${({ size }) => css`
     width: ${size}px;
     height: ${size}px;
-    background-color: ${COLORS.GRAY_DARK};
     border-radius: 50px;
+    background-color: ${COLORS.GRAY_DARK};
   `}
 `
