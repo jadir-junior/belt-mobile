@@ -3,6 +3,7 @@ import * as S from './PerfilScreen.styles'
 import { Card } from '../../components/Card/Card'
 import { Container } from '../../components/Container/Container'
 import { ProfileInfo } from '../../components/ProfileInfo/ProfileInfo'
+import { ProfileListItem } from '../../components/ProfileListItem/ProfileListItem'
 import React from 'react'
 import { useUser } from '../../contexts/user.context'
 
@@ -12,7 +13,7 @@ const PerfilScreen = () => {
   return (
     <Container>
       <ProfileInfo {...user} />
-      <Card />
+      <ProfileListItem title="Perfil" subtitle="Edite o seu perfil" />
     </Container>
   )
 }
