@@ -1,3 +1,5 @@
+import 'react-native-gesture-handler'
+
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { AuthProvider } from './src/contexts/Auth'
 import React from 'react'

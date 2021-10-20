@@ -21,8 +21,11 @@
   },
   "jest": {
     "preset": "jest-expo",
+    "setupFiles": [
+      "./node_modules/react-native-gesture-handler/jestSetup.js"
+    ],
     "transformIgnorePatterns": [
-      "node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|sentry-expo|native-base)"
+      "node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|@react-navigation|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|sentry-expo|native-base)"
     ],
     "setupFilesAfterEnv": [
       "<rootDir>/src/setupTests.js"
