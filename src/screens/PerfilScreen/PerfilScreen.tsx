@@ -1,13 +1,18 @@
-import * as S from './PerfilScreen.styles';
+import * as S from './PerfilScreen.styles'
 
-import { Text } from 'react-native'
-
+import { Container } from '../../components/Container/Container'
+import { ProfileInfo } from '../../components/ProfileInfo/ProfileInfo'
 import React from 'react'
+import { useUser } from '../../contexts/user.context'
 
-const PerfilScreen = () => (
-  <S.Wrapper>
-    <Text>PerfilScreen</Text>
-  </S.Wrapper>
-)
+const PerfilScreen = () => {
+  const { user } = useUser()
+
+  return (
+    <Container>
+      <ProfileInfo {...user} />
+    </Container>
+  )
+}
 
 export { PerfilScreen }

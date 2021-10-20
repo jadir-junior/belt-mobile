@@ -16,13 +16,15 @@ const colorsTextModifiers = (color: string) => {
 
 type ParagraphStyleProps = {
   color: string
+  weight: string
 }
 
 export const Wrapper = styled.Text<ParagraphStyleProps>`
-  ${({ color }) => css`
+  ${({ color, weight }) => css`
     font-family: ${FONT_FAMILY.REGULAR};
     font-size: 14px;
     color: ${colorsTextModifiers(color)};
     letter-spacing: -0.7px;
+    font-weight: ${weight === 'regular' ? 400 : 'bold'};
   `}
 `
