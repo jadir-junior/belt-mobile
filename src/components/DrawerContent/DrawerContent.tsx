@@ -1,31 +1,15 @@
 import * as S from './DrawerContent.styles'
 
-import React, { useEffect, useState } from 'react'
-import { User, getUser } from '../../services/user.service'
-
 import { Divider } from '../Divider/Divider'
 import { DrawerFooter } from '../DrawerFooter/DrawerFooter'
 import { ListItem } from '../ListItem/ListItem'
 import { MaterialIcons } from '@expo/vector-icons'
+import React from 'react'
 import { UserInfo } from '../UserInfo/UserInfo'
-import { useAuth } from '../../contexts/Auth'
+import { useUser } from '../../contexts/user.context'
 
 const DrawerContent = () => {
-  const [user, setUser] = useState<User>()
-  const auth = useAuth()
-
-  useEffect(() => {
-    async function getUserInfo(): Promise<void> {
-      try {
-        const user: User | undefined = await getUser()
-        setUser(user)
-      } catch (error) {
-        console.error(error)
-      }
-    }
-
-    getUserInfo()
-  }, [])
+  const { user } = useUser()
 
   return (
     <S.Wrapper>
@@ -35,11 +19,6 @@ const DrawerContent = () => {
         <ListItem
           title="Disp. produtos para venda"
           icon={<MaterialIcons name="inventory" size={24} />}
-        ></ListItem>
-        <ListItem
-          title="Sair"
-          onPress={auth.signOut}
-          icon={<MaterialIcons name="logout" size={24} />}
         ></ListItem>
       </S.ListContent>
       <Divider />

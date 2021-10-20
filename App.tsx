@@ -3,6 +3,7 @@ import { AuthProvider } from './src/contexts/Auth'
 import React from 'react'
 import Reactotron from 'reactotron-react-native'
 import { Router } from './src/routes/Routes'
+import { UserProvider } from './src/contexts/user.context'
 import { useFonts } from 'expo-font'
 
 if (__DEV__) {
@@ -25,7 +26,9 @@ export default function App() {
 
   return (
     <AuthProvider>
-      <Router />
+      <UserProvider>
+        <Router />
+      </UserProvider>
     </AuthProvider>
   )
 }
