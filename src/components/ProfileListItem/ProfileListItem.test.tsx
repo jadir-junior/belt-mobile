@@ -8,6 +8,6 @@ describe('ProfileListItem', () => {
       <ProfileListItem title="Profile" subtitle="Edit your profile" />
     )
 
-    expect(getByText(/profile/i)).toBeDefined()
+    expect(getByText(/edit/i)).toBeDefined()
   })
 })
