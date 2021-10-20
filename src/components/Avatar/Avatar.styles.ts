@@ -10,5 +10,3 @@ export const ImageWrapper = styled.View<AvatarProps>`
     border-radius: 50px;
   `}
 `
-
-export const Image = styled.Image<AvatarProps>``

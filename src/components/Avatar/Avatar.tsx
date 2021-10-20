@@ -1,7 +1,8 @@
 import * as S from './Avatar.styles'
 
-import { Image, Text, ViewProps } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import { Image, ViewProps } from 'react-native'
+
+import React from 'react'
 
 export type AvatarProps = {
   size?: number

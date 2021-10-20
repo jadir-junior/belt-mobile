@@ -1,7 +1,5 @@
 import * as S from './ProfileInfo.styles'
 
-import { Image, Text } from 'react-native'
-
 import { Avatar } from '../Avatar/Avatar'
 import { Paragraph } from '../Paragraph/Paragraph'
 import React from 'react'
@@ -14,11 +12,15 @@ export type ProfileInfoProps = {
 
 const ProfileInfo = ({ name, position, photo }: ProfileInfoProps) => (
   <S.Wrapper>
-    <Avatar url={photo} />
-    <Paragraph color="primary" weight="bold">
-      {name}
-    </Paragraph>
-    <Paragraph>{position}</Paragraph>
+    <S.PhotoContent>
+      <Avatar url={photo} accessibilityLabel="profile photo" />
+    </S.PhotoContent>
+    <S.InfoContent>
+      <Paragraph color="primary" weight="bold">
+        {name}
+      </Paragraph>
+      <Paragraph>{position}</Paragraph>
+    </S.InfoContent>
   </S.Wrapper>
 )
 

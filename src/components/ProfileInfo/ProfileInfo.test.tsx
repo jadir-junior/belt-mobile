@@ -9,10 +9,11 @@ describe('ProfileInfo', () => {
   }
 
   it('should render default elements', async () => {
-    const { getByText } = render(<ProfileInfo {...user} />)
+    const { getByText, getByLabelText } = render(<ProfileInfo {...user} />)
 
     expect(getByText(/john doe/i)).toBeDefined()
     expect(getByText(/cto/i)).toBeDefined()
+    expect(getByLabelText(/profile photo/i)).toBeDefined()
     expect(getByText(/john doe/i)).toHaveStyle({
       color: '#040404'
     })

@@ -3,9 +3,12 @@ import styled from 'styled-components/native'
 
 export const Wrapper = styled.View`
   padding: 8px 16px;
+  flex-direction: row;
+  align-items: center;
 `
 
-export const Photo = styled.Image`
-  width: 76px;
-  height: 76px;
+export const PhotoContent = styled.View`
+  margin-right: 16px;
 `
+
+export const InfoContent = styled.View``
