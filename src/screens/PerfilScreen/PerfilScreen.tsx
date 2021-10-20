@@ -1,5 +1,6 @@
 import * as S from './PerfilScreen.styles'
 
+import { Card } from '../../components/Card/Card'
 import { Container } from '../../components/Container/Container'
 import { ProfileInfo } from '../../components/ProfileInfo/ProfileInfo'
 import React from 'react'
@@ -11,6 +12,7 @@ const PerfilScreen = () => {
   return (
     <Container>
       <ProfileInfo {...user} />
+      <Card />
     </Container>
   )
 }
