@@ -6,6 +6,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import { Avatar } from '../Avatar/Avatar'
 import { COLORS } from '../../theme/theme'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
+import { Input } from '../Input/Input'
 import React from 'react'
 import { User } from '../../types/user.type'
 import { createFormData } from '../../utils/form-data/form-data'
@@ -46,6 +47,7 @@ const FormEditProfile = ({
           </FileUpload>
         </S.FileUploadWrapper>
       </S.UploadFileWrapper>
+      <Input label="Email" value={email} disabled />
     </S.Wrapper>
   )
 }
