@@ -3,6 +3,7 @@ import * as S from './DrawerContent.styles'
 import { AppStackParamList } from '../../routes/AppStack'
 import { Divider } from '../Divider/Divider'
 import { DrawerFooter } from '../DrawerFooter/DrawerFooter'
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import { ListItem } from '../ListItem/ListItem'
 import { MaterialIcons } from '@expo/vector-icons'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
@@ -25,7 +26,7 @@ const DrawerContent = () => {
         <ListItem
           title="Disp. produtos para venda"
           accessibilityLabel="disponibilização de produtos para venda"
-          icon={<MaterialIcons name="inventory" size={24} />}
+          icon={<Icon name="archive-outline" size={24} />}
         ></ListItem>
         <ListItem
           title="Perfil"
