@@ -4,7 +4,7 @@ import React from 'react'
 import { TouchableOpacityProps } from 'react-native'
 
 export type IconButtonProps = {
-  icon: React.ReactNode
+  icon: string
   error?: string
   size?: number
   color?: 'default' | 'primary'
@@ -20,9 +20,13 @@ const IconButton = ({
   ...props
 }: IconButtonProps) => (
   <S.Wrapper {...props} onPress={onPress} activeOpacity={0.6}>
-    <S.Icon error={!!error} testID="icon" size={size} color={color}>
-      {icon}
-    </S.Icon>
+    <S.MaterialIcon
+      name={icon}
+      size={size}
+      color={color}
+      error={!!error}
+      testID="icon"
+    />
   </S.Wrapper>
 )
 

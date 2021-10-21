@@ -50,7 +50,7 @@ const Root = () => (
               width: 120
             }}
           >
-            <IconButton icon="notifications" size={24} color="primary" />
+            <IconButton icon="bell-outline" size={24} color="primary" />
           </View>
         )
       }}

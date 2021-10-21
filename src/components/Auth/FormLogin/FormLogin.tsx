@@ -6,9 +6,9 @@ import React, { useState } from 'react'
 import { Button } from '../../Button/Button'
 import { Error } from '../../../utils/errors/errors'
 import { ErrorText } from '../../ErrorText/ErrorText'
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import { IconButton } from '../../IconButton/IconButton'
 import { Input } from '../../Input/Input'
-import { MaterialIcons } from '@expo/vector-icons'
 import { fieldsValidationSchema } from '../../../utils/validations/auth'
 import { yupResolver } from '@hookform/resolvers/yup'
 
@@ -52,7 +52,7 @@ const FormLogin = ({ onSubmit, error }: FormLoginProps) => {
               placeholder="Email"
               keyboardType="email-address"
               accessibilityLabel="email"
-              icon={<MaterialIcons name="mail-outline" size={24} />}
+              icon={<Icon name="email-outline" size={24} />}
               value={value}
               onChangeText={(value) => onChange(value)}
               error={errors?.email?.message}
@@ -75,12 +75,7 @@ const FormLogin = ({ onSubmit, error }: FormLoginProps) => {
                   testID="securityPassword"
                   onPress={toogleSecurityText}
                   error={errors?.password?.message}
-                  icon={
-                    <MaterialIcons
-                      name={securityTextHide ? 'lock-outline' : 'lock-open'}
-                      size={24}
-                    />
-                  }
+                  icon={securityTextHide ? 'lock-outline' : 'lock-open-outline'}
                 />
               }
               value={value}

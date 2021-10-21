@@ -6,19 +6,14 @@ import { render } from '../../utils/tests/test-utils'
 describe('IconButton', () => {
   it('should render default elements', async () => {
     const { getByTestId } = render(
-      <IconButton
-        testID="iconButton"
-        icon={<MaterialIcons name="mail-outline" />}
-      />
+      <IconButton testID="iconButton" icon="email-outline" />
     )
 
     expect(getByTestId(/iconButton/i)).toBeDefined()
   })
 
   it('should render a icon with color default', async () => {
-    const { getByTestId } = render(
-      <IconButton icon={<MaterialIcons name="mail-outline" />} />
-    )
+    const { getByTestId } = render(<IconButton icon="email-outline" />)
 
     expect(getByTestId('icon')).toHaveStyle({
       color: '#9E9E9E'
@@ -27,10 +22,7 @@ describe('IconButton', () => {
 
   it('should render a icon with color danger if a error', async () => {
     const { getByTestId } = render(
-      <IconButton
-        error="email invalido"
-        icon={<MaterialIcons name="mail-outline" />}
-      />
+      <IconButton error="email invalido" icon="email-outline" />
     )
 
     expect(getByTestId('icon')).toHaveStyle({
@@ -40,10 +32,7 @@ describe('IconButton', () => {
 
   it('should render a icon with a color primary', async () => {
     const { getByTestId } = render(
-      <IconButton
-        color="primary"
-        icon={<MaterialIcons name="mail-outline" />}
-      />
+      <IconButton color="primary" icon="email-outline" />
     )
 
     expect(getByTestId('icon')).toHaveStyle({
@@ -52,9 +41,7 @@ describe('IconButton', () => {
   })
 
   it('should render a icon without size with 24px', async () => {
-    const { getByTestId } = render(
-      <IconButton icon={<MaterialIcons name="mail-outline" />} />
-    )
+    const { getByTestId } = render(<IconButton icon="email-outline" />)
 
     expect(getByTestId(/icon/i)).toHaveStyle({
       fontSize: 24
@@ -63,7 +50,7 @@ describe('IconButton', () => {
 
   it('should render a icon with size 30px', async () => {
     const { getByTestId } = render(
-      <IconButton size={30} icon={<MaterialIcons name="mail-outline" />} />
+      <IconButton size={30} icon="email-outline" />
     )
 
     expect(getByTestId(/icon/i)).toHaveStyle({

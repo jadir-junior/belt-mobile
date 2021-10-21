@@ -5,7 +5,6 @@ import { Divider } from '../Divider/Divider'
 import { DrawerFooter } from '../DrawerFooter/DrawerFooter'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import { ListItem } from '../ListItem/ListItem'
-import { MaterialIcons } from '@expo/vector-icons'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import React from 'react'
 import { UserInfo } from '../UserInfo/UserInfo'
@@ -31,7 +30,7 @@ const DrawerContent = () => {
         <ListItem
           title="Perfil"
           accessibilityLabel="perfil"
-          icon={<MaterialIcons name="person" size={24} />}
+          icon={<Icon name="account-outline" size={24} />}
           onPress={() => navigation.navigate('Perfil')}
         />
       </S.ListContent>
