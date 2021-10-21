@@ -1,3 +1,4 @@
+import { COLORS } from '../../theme/theme'
 import React from 'react'
 import styled from 'styled-components/native'
 

@@ -1,6 +1,6 @@
 import * as S from './PerfilScreen.styles'
 
-import { Card } from '../../components/Card/Card'
+import { COLORS } from '../../theme/theme'
 import { Container } from '../../components/Container/Container'
 import { ProfileInfo } from '../../components/ProfileInfo/ProfileInfo'
 import { ProfileListItem } from '../../components/ProfileListItem/ProfileListItem'
@@ -36,6 +36,8 @@ const PerfilScreen = () => {
           <ProfileListItem
             title="Sair"
             subtitle="Você irá sair do aplicativo"
+            icon="logout"
+            iconColor={COLORS.DANGER}
             onPress={() => {
               signOut()
             }}
