@@ -5,6 +5,7 @@ import { User, getUser } from '../../services/user.service'
 
 import { Divider } from '../Divider/Divider'
 import { DrawerFooter } from '../DrawerFooter/DrawerFooter'
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import { ListItem } from '../ListItem/ListItem'
 import { MaterialIcons } from '@expo/vector-icons'
 import { UserInfo } from '../UserInfo/UserInfo'
@@ -34,7 +35,7 @@ const DrawerContent = () => {
       <S.ListContent>
         <ListItem
           title="Disp. produtos para venda"
-          icon={<MaterialIcons name="inventory" size={24} />}
+          icon={<Icon name="archive-outline" size={24} />}
         ></ListItem>
         <ListItem
           title="Sair"
