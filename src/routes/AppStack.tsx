@@ -4,6 +4,7 @@ import { DrawerContent } from '../components/DrawerContent/DrawerContent'
 import { HomeScreen } from '../screens/HomeScreen/HomeScreen'
 import { IconButton } from '../components/IconButton/IconButton'
 import { PerfilScreen } from '../screens/PerfilScreen/PerfilScreen'
+import { ProfileEditScreen } from '../screens/ProfileEditScreen/ProfileEditScreen'
 import React from 'react'
 import { View } from 'react-native'
 import { createDrawerNavigator } from '@react-navigation/drawer'
@@ -12,6 +13,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 export type AppStackParamList = {
   Root: undefined
   Perfil: undefined
+  ProfileEdit: undefined
 }
 
 const Stack = createNativeStackNavigator<AppStackParamList>()
@@ -76,5 +78,10 @@ export const AppStack = () => (
       options={{ headerShown: false }}
     />
     <Stack.Screen name="Perfil" component={PerfilScreen} />
+    <Stack.Screen
+      name="ProfileEdit"
+      component={ProfileEditScreen}
+      options={{ title: 'editar perfil' }}
+    />
   </Stack.Navigator>
 )

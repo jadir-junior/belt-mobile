@@ -1,7 +1,9 @@
 import * as S from './PerfilScreen.styles'
 
+import { AppStackParamList } from '../../routes/AppStack'
 import { COLORS } from '../../theme/theme'
 import { Container } from '../../components/Container/Container'
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { ProfileInfo } from '../../components/ProfileInfo/ProfileInfo'
 import { ProfileListItem } from '../../components/ProfileListItem/ProfileListItem'
 import React from 'react'
@@ -9,10 +11,12 @@ import { useAuth } from '../../contexts/Auth'
 import { useNavigation } from '@react-navigation/core'
 import { useUser } from '../../contexts/user.context'
 
+type PerfilScreenProps = NativeStackNavigationProp<AppStackParamList>
+
 const PerfilScreen = () => {
   const { user } = useUser()
   const { signOut } = useAuth()
-  const navigation = useNavigation()
+  const navigation = useNavigation<PerfilScreenProps>()
 
   return (
     <Container>
@@ -22,7 +26,9 @@ const PerfilScreen = () => {
           <ProfileListItem
             title="Perfil"
             subtitle="Edite o seu perfil"
-            onPress={() => {}}
+            onPress={() => {
+              navigation.navigate('ProfileEdit')
+            }}
           />
         </S.ItemContent>
         <S.ItemContent>

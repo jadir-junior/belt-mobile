@@ -12,13 +12,14 @@ import { getMe } from '../services/user.service'
 import { useAuth } from './Auth'
 
 type UserContextData = {
-  user?: User
+  user: User
+  setUserStorageData(user: User): Promise<void>
 }
 
 const UserContext = createContext<UserContextData>({} as UserContextData)
 
 const UserProvider: FC = ({ children }) => {
-  const [user, setUser] = useState<User>()
+  const [user, setUser] = useState<User>({ _id: '', email: '' })
   const { authData } = useAuth()
 
   useEffect(() => {
@@ -54,8 +55,19 @@ const UserProvider: FC = ({ children }) => {
     }
   }
 
+  async function setUserStorageData(user: User): Promise<void> {
+    try {
+      await AsyncStorage.setItem('@BELT:USER', JSON.stringify(user))
+      setUser(user)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
   return (
-    <UserContext.Provider value={{ user }}>{children}</UserContext.Provider>
+    <UserContext.Provider value={{ user, setUserStorageData }}>
+      {children}
+    </UserContext.Provider>
   )
 }
 
