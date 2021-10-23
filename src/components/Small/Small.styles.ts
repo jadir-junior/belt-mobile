@@ -10,7 +10,7 @@ type TextStyleProps = {
 
 export const Text = styled.Text<TextStyleProps>`
   ${({ color, weight }) => css`
-    font-size: 12px;
+    font-size: 14px;
     color: ${color === 'default' ? COLORS.GRAY_DARK : COLORS.PRIMARY};
     font-family: ${FONT_FAMILY.REGULAR};
     font-weight: ${weight === 'bold' ? 'bold' : 400};

@@ -1,10 +1,13 @@
 import { ChangePasswordScreen } from './ChangePasswordScreen'
+import { MockedNavigator } from '../../utils/tests/MockedScreen'
 import React from 'react'
 import { render } from '../../utils/tests/test-utils'
 
 describe('ChangePasswordScreen', () => {
   it('should render default elements', async () => {
-    const { getByText } = render(<ChangePasswordScreen />)
+    const { getByText } = render(
+      <MockedNavigator component={ChangePasswordScreen} />
+    )
 
     const informationText = getByText(
       /crie sua senha que deve ter \n no minimo 6 caracteres/i
