@@ -15,5 +15,7 @@ describe('ChangePasswordScreen', () => {
       color: '#040404'
     })
     expect(getByText(/nova senha/i)).toBeDefined()
+    expect(getByText(/confirme sua senha/i)).toBeDefined()
+    expect(getByText(/atualizar a senha/i)).toBeDefined()
   })
 })
