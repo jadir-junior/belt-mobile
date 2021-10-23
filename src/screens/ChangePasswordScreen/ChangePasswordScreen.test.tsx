@@ -7,7 +7,7 @@ describe('ChangePasswordScreen', () => {
     const { getByText } = render(<ChangePasswordScreen />)
 
     const informationText = getByText(
-      /crie sua senha que deve ter no minimo 6 caracteres/i
+      /crie sua senha que deve ter \n no minimo 6 caracteres/i
     )
 
     expect(informationText).toBeDefined()
