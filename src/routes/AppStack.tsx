@@ -1,5 +1,6 @@
 import { COLORS, FONT_FAMILY } from '../theme/theme'
 
+import { ChangePasswordScreen } from '../screens/ChangePasswordScreen/ChangePasswordScreen'
 import { DrawerContent } from '../components/DrawerContent/DrawerContent'
 import { HomeScreen } from '../screens/HomeScreen/HomeScreen'
 import { IconButton } from '../components/IconButton/IconButton'
@@ -14,6 +15,7 @@ export type AppStackParamList = {
   Root: undefined
   Perfil: undefined
   ProfileEdit: undefined
+  ChangePassword: undefined
 }
 
 const Stack = createNativeStackNavigator<AppStackParamList>()
@@ -82,6 +84,11 @@ export const AppStack = () => (
       name="ProfileEdit"
       component={ProfileEditScreen}
       options={{ title: 'editar perfil' }}
+    />
+    <Stack.Screen
+      name="ChangePassword"
+      component={ChangePasswordScreen}
+      options={{ title: 'troca de senha' }}
     />
   </Stack.Navigator>
 )

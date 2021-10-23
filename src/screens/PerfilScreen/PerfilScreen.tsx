@@ -35,7 +35,9 @@ const PerfilScreen = () => {
           <ProfileListItem
             title="Alterar a senha"
             subtitle="Atualize frequentemente sua senha"
-            onPress={() => {}}
+            onPress={() => {
+              navigation.navigate('ChangePassword')
+            }}
           />
         </S.ItemContent>
         <S.ItemContent>
