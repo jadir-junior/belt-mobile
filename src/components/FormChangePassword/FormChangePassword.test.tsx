@@ -51,4 +51,70 @@ describe('FormChangePassword', () => {
       expect(input.props.secureTextEntry).toBe(false)
     })
   })
+
+  it('should render the fields is required', async () => {
+    const onSubmit = jest.fn()
+    const { getByText } = render(<FormChangePassword onSubmit={onSubmit} />)
+
+    fireEvent.press(getByText(/atualizar a senha/i))
+
+    await waitFor(() => {
+      expect(getByText(/A senha é obrigatória/i))
+      expect(getByText(/A confirmação de senha é obrigatória/i))
+    })
+  })
+
+  it('should render a ERROR if the fields dont fill with more than 5 characters', async () => {
+    const onSubmit = jest.fn()
+    const { getByText, getByLabelText } = render(
+      <FormChangePassword onSubmit={onSubmit} />
+    )
+
+    fireEvent.changeText(getByLabelText('password'), 'abc')
+    fireEvent.changeText(getByLabelText('confirm password'), 'abc')
+
+    fireEvent.press(getByText(/atualizar a senha/i))
+
+    await waitFor(() => {
+      expect(getByText(/A senha deve conter pelo menos 6 digitos/i))
+      expect(
+        getByText(/A confirmação de senha deve conter pelo menos 6 digitos/i)
+      )
+    })
+  })
+
+  it('should render a ERROR if the field not match', async () => {
+    const onSubmit = jest.fn()
+    const { getByText, getByLabelText } = render(
+      <FormChangePassword onSubmit={onSubmit} />
+    )
+
+    fireEvent.changeText(getByLabelText('password'), 'abcd1234')
+    fireEvent.changeText(getByLabelText('confirm password'), 'abcd123')
+
+    fireEvent.press(getByText(/atualizar a senha/i))
+
+    await waitFor(() => {
+      expect(getByText(/As senhas não são iguais/i))
+    })
+  })
+
+  it('should send a change password', async () => {
+    const onSubmit = jest.fn()
+    const { getByText, getByLabelText } = render(
+      <FormChangePassword onSubmit={onSubmit} />
+    )
+
+    fireEvent.changeText(getByLabelText('password'), 'abcd123')
+    fireEvent.changeText(getByLabelText('confirm password'), 'abcd123')
+
+    fireEvent.press(getByText(/atualizar a senha/i))
+
+    await waitFor(() => {
+      expect(onSubmit).toHaveBeenCalledWith({
+        password: 'abcd123',
+        confirmPassword: 'abcd123'
+      })
+    })
+  })
 })

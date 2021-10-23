@@ -6,6 +6,8 @@ import React, { useState } from 'react'
 import { Button } from '../Button/Button'
 import { IconButton } from '../IconButton/IconButton'
 import { Input } from '../Input/Input'
+import { fieldsChangePasswordValidationSchema } from '../../utils/validations/auth'
+import { yupResolver } from '@hookform/resolvers/yup'
 
 export type changePasswordDTO = {
   password: string
@@ -21,7 +23,9 @@ const FormChangePassword = ({ onSubmit }: FormChangePasswordProps) => {
     control,
     handleSubmit,
     formState: { errors }
-  } = useForm({})
+  } = useForm({
+    resolver: yupResolver(fieldsChangePasswordValidationSchema)
+  })
 
   const [passwordSecurity, setPasswordSecurity] = useState(true)
   const [confirmPasswordSecurity, setConfirmPasswordSecurity] = useState(true)
@@ -35,7 +39,6 @@ const FormChangePassword = ({ onSubmit }: FormChangePasswordProps) => {
   }
 
   const submit = (data: changePasswordDTO) => {
-    console.log(data)
     onSubmit(data)
   }
 
@@ -80,7 +83,7 @@ const FormChangePassword = ({ onSubmit }: FormChangePasswordProps) => {
               iconButton={
                 <IconButton
                   testID="confirmPasswordIconButton"
-                  error={errors?.confirmPassword?.messsage}
+                  error={errors?.confirmPassword?.message}
                   icon={
                     confirmPasswordSecurity
                       ? 'lock-outline'
