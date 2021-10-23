@@ -1,32 +1,21 @@
 import * as S from './DrawerContent.styles'
 
-import React, { useEffect, useState } from 'react'
-import { User, getUser } from '../../services/user.service'
-
+import { AppStackParamList } from '../../routes/AppStack'
 import { Divider } from '../Divider/Divider'
 import { DrawerFooter } from '../DrawerFooter/DrawerFooter'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import { ListItem } from '../ListItem/ListItem'
-import { MaterialIcons } from '@expo/vector-icons'
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
+import React from 'react'
 import { UserInfo } from '../UserInfo/UserInfo'
-import { useAuth } from '../../contexts/Auth'
+import { useNavigation } from '@react-navigation/core'
+import { useUser } from '../../contexts/user.context'
+
+type DrawerContentProps = NativeStackNavigationProp<AppStackParamList>
 
 const DrawerContent = () => {
-  const [user, setUser] = useState<User>()
-  const auth = useAuth()
-
-  useEffect(() => {
-    async function getUserInfo(): Promise<void> {
-      try {
-        const user: User | undefined = await getUser()
-        setUser(user)
-      } catch (error) {
-        console.error(error)
-      }
-    }
-
-    getUserInfo()
-  }, [])
+  const { user } = useUser()
+  const navigation = useNavigation<DrawerContentProps>()
 
   return (
     <S.Wrapper>
@@ -35,13 +24,15 @@ const DrawerContent = () => {
       <S.ListContent>
         <ListItem
           title="Disp. produtos para venda"
+          accessibilityLabel="disponibilização de produtos para venda"
           icon={<Icon name="archive-outline" size={24} />}
         ></ListItem>
         <ListItem
-          title="Sair"
-          onPress={auth.signOut}
-          icon={<MaterialIcons name="logout" size={24} />}
-        ></ListItem>
+          title="Perfil"
+          accessibilityLabel="perfil"
+          icon={<Icon name="account-outline" size={24} />}
+          onPress={() => navigation.navigate('Perfil')}
+        />
       </S.ListContent>
       <Divider />
       <S.FooterContent>

@@ -1,11 +1,18 @@
+import { fireEvent, render } from '../../utils/tests/test-utils'
+
 import { DrawerContent } from './DrawerContent'
+import { MockedNavigator } from '../../utils/tests/MockedScreen'
 import React from 'react'
-import { render } from '@testing-library/react-native'
 
 describe('DrawerContent', () => {
   it('should render default elements', async () => {
-    const { getByText } = render(<DrawerContent />)
+    const { getByLabelText } = render(
+      <MockedNavigator component={DrawerContent} />
+    )
 
-    // expect(getByText(/DrawerContent/i)).toBeDefined()
+    expect(
+      getByLabelText(/disponibilização de produtos para venda/i)
+    ).toBeDefined()
+    expect(getByLabelText(/perfil/i)).toBeDefined()
   })
 })

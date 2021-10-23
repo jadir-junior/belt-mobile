@@ -4,11 +4,12 @@ import { AvatarProps } from './Avatar'
 import { COLORS } from '../../theme/theme'
 import React from 'react'
 
-export const Wrapper = styled.View<AvatarProps>`
+export const ImageWrapper = styled.View<AvatarProps>`
   ${({ size }) => css`
     width: ${size}px;
     height: ${size}px;
     border-radius: 50px;
-    background-color: ${COLORS.GRAY_DARK};
+    background-color: ${COLORS.WHITE};
+    elevation: 4;
   `}
 `

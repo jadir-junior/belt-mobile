@@ -3,13 +3,20 @@ import { COLORS, FONT_FAMILY } from '../theme/theme'
 import { DrawerContent } from '../components/DrawerContent/DrawerContent'
 import { HomeScreen } from '../screens/HomeScreen/HomeScreen'
 import { IconButton } from '../components/IconButton/IconButton'
-import { MaterialIcons } from '@expo/vector-icons'
+import { PerfilScreen } from '../screens/PerfilScreen/PerfilScreen'
+import { ProfileEditScreen } from '../screens/ProfileEditScreen/ProfileEditScreen'
 import React from 'react'
 import { View } from 'react-native'
 import { createDrawerNavigator } from '@react-navigation/drawer'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
-const Stack = createNativeStackNavigator()
+export type AppStackParamList = {
+  Root: undefined
+  Perfil: undefined
+  ProfileEdit: undefined
+}
+
+const Stack = createNativeStackNavigator<AppStackParamList>()
 
 const Drawer = createDrawerNavigator()
 
@@ -20,6 +27,7 @@ const Root = () => (
       headerTintColor: COLORS.PRIMARY,
       headerTitleStyle: {
         fontFamily: FONT_FAMILY.BOLD,
+        letterSpacing: -1.3,
         fontSize: 30
       },
       headerTitleAlign: 'center',
@@ -33,11 +41,6 @@ const Root = () => (
       component={HomeScreen}
       options={{
         title: 'belt',
-        headerTitleStyle: {
-          letterSpacing: -1.3,
-          fontSize: 30,
-          fontFamily: FONT_FAMILY.BOLD
-        },
         headerRightContainerStyle: {
           alignItems: 'flex-start'
         },
@@ -49,7 +52,7 @@ const Root = () => (
               width: 120
             }}
           >
-            <IconButton icon="notifications" size={24} color="primary" />
+            <IconButton icon="bell-outline" size={24} color="primary" />
           </View>
         )
       }}
@@ -58,11 +61,27 @@ const Root = () => (
 )
 
 export const AppStack = () => (
-  <Stack.Navigator>
+  <Stack.Navigator
+    screenOptions={{
+      headerTintColor: COLORS.PRIMARY,
+      headerShadowVisible: false,
+      headerTitleStyle: {
+        fontFamily: FONT_FAMILY.BOLD,
+        fontSize: 30
+      },
+      headerTitleAlign: 'center'
+    }}
+  >
     <Stack.Screen
       name="Root"
       component={Root}
       options={{ headerShown: false }}
+    />
+    <Stack.Screen name="Perfil" component={PerfilScreen} />
+    <Stack.Screen
+      name="ProfileEdit"
+      component={ProfileEditScreen}
+      options={{ title: 'editar perfil' }}
     />
   </Stack.Navigator>
 )

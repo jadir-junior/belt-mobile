@@ -88,4 +88,35 @@ describe('Input', () => {
       })
     })
   })
+
+  it('should render with a label', async () => {
+    const { getByText } = render(
+      <Input placeholder="Email" label="Email label" />
+    )
+
+    expect(getByText(/email label/i)).toBeDefined()
+  })
+
+  it('should render a input disabled', async () => {
+    const { getByTestId, getByLabelText } = render(
+      <Input
+        placeholder="Email"
+        label="Email label"
+        value="johndoe@email.com"
+        accessibilityLabel="input"
+        disabled
+      />
+    )
+
+    const input = getByLabelText('input')
+
+    expect(getByTestId('inputWrapper')).toHaveStyle({
+      backgroundColor: '#F6F6F7',
+      borderColor: '#F6F6F7'
+    })
+    expect(getByLabelText('input')).toHaveStyle({
+      color: '#9E9E9E'
+    })
+    expect(input.props.editable).toBe(false)
+  })
 })

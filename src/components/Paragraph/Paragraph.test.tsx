@@ -26,4 +26,16 @@ describe('Paragraph', () => {
       color: '#040404'
     })
   })
+
+  it('should render with a weight bold', async () => {
+    const { getByText } = render(
+      <Paragraph color="primary" weight="bold">
+        im a paragraph
+      </Paragraph>
+    )
+
+    expect(getByText(/im a paragraph/i)).toHaveStyle({
+      fontWeight: 'bold'
+    })
+  })
 })

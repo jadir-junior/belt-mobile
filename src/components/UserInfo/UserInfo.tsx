@@ -13,7 +13,7 @@ export type UserInfoProps = {
 
 const UserInfo = ({ name, photo, position }: UserInfoProps) => (
   <S.Wrapper>
-    <Avatar size={76} accessibilityLabel="user information" />
+    <Avatar size={76} url={photo} accessibilityLabel="user information" />
     <S.TitleWrapper>{name && <Title>{name}</Title>}</S.TitleWrapper>
     <S.PositionWrapper>
       {position && <Paragraph color="primary">{position}</Paragraph>}

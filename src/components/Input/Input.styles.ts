@@ -11,22 +11,31 @@ const inputWrapperModifiers = {
   `,
   focus: () => css`
     border-color: ${COLORS.PRIMARY};
+  `,
+  disabled: () => css`
+    border-color: ${COLORS.GRAY_LIGHT};
+    background-color: ${COLORS.GRAY_LIGHT};
   `
 }
 
 type InputWrapperProps = {
   focus: boolean
   error: boolean
+  disabled: boolean
 }
 
 type IconWrapperProps = {
   error: boolean
 }
 
+type TextInputStyleProps = {
+  disabled: boolean
+}
+
 export const Wrapper = styled.View``
 
 export const InputWrapper = styled.View<InputWrapperProps>`
-  ${({ error, focus }) => css`
+  ${({ error, focus, disabled }) => css`
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -36,6 +45,7 @@ export const InputWrapper = styled.View<InputWrapperProps>`
     width: 100%;
     ${error && inputWrapperModifiers.error()};
     ${focus && inputWrapperModifiers.focus()};
+    ${disabled && inputWrapperModifiers.disabled()};
   `}
 `
 
@@ -50,14 +60,20 @@ export const IconButton = styled.View`
   padding: 0 8px;
 `
 
-export const Input = styled(TextInput)`
-  color: ${COLORS_TEXT.PRIMARY};
-  font-family: ${FONT_FAMILY.REGULAR};
-  background-color: transparent;
-  flex: 1;
-  padding: 16px 16px;
+export const Input = styled(TextInput)<TextInputStyleProps>`
+  ${({ disabled }) => css`
+    color: ${disabled ? COLORS_TEXT.GRAY_DARK : COLORS_TEXT.PRIMARY};
+    font-family: ${FONT_FAMILY.REGULAR};
+    background-color: transparent;
+    flex: 1;
+    padding: 16px 16px;
+  `}
 `
 
 export const ErrorWrapper = styled.View`
   margin-top: 4px;
+`
+
+export const Label = styled.View`
+  margin-bottom: 4px;
 `

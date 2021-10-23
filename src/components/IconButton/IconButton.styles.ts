@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components/native'
 
 import { COLORS } from '../../theme/theme'
-import { MaterialIcons } from '@expo/vector-icons'
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import React from 'react'
 
 export const Wrapper = styled.TouchableOpacity``
@@ -23,7 +23,7 @@ type IconProps = {
   size: number
 }
 
-export const Icon = styled(MaterialIcons)<IconProps>`
+export const MaterialIcon = styled(Icon)<IconProps>`
   ${({ error, color, size }) => css`
     color: ${error && COLORS.DANGER ? COLORS.DANGER : colorsModifiers(color)};
     font-size: ${size}px;
