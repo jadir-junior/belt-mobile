@@ -1,11 +1,35 @@
+import { fireEvent, render, waitFor } from '../../utils/tests/test-utils'
+
 import { ProfileEditScreen } from './ProfileEditScreen'
 import React from 'react'
-import { render } from '../../utils/tests/test-utils'
+import { User } from '../../types/user.type'
+import { UserContext } from '../../contexts/user.context'
 
 describe('ProfileEditScreen', () => {
-  it('should render default elements', async () => {
-    const { getByText } = render(<ProfileEditScreen />)
+  const user: User = {
+    _id: '1234',
+    email: 'johndoe@email.com',
+    name: 'John Doe',
+    position: 'CTO',
+    permissionFlags: 1,
+    photo: 'https//photo.com'
+  }
 
-    // expect(getByText(/ProfileEditScreen/i)).toBeDefined()
+  const setUserStorageData = jest.fn()
+
+  const updateUser = jest.fn()
+
+  it('should render default elements', async () => {
+    const { getByText, getByLabelText } = render(
+      <UserContext.Provider value={{ user, setUserStorageData }}>
+        <ProfileEditScreen />
+      </UserContext.Provider>
+    )
+
+    expect(getByText(/email/i)).toBeDefined()
+    expect(getByText(/nome/i)).toBeDefined()
+    expect(getByText(/cargo/i)).toBeDefined()
+    expect(getByText(/atualizar/i)).toBeDefined()
+    expect(getByLabelText(/file upload/i)).toBeDefined()
   })
 })

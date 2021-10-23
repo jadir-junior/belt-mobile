@@ -103,6 +103,7 @@ describe('Input', () => {
         placeholder="Email"
         label="Email label"
         value="johndoe@email.com"
+        accessibilityLabel="input"
         disabled
       />
     )

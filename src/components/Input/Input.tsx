@@ -13,6 +13,7 @@ export type InputProps = {
   error?: string
   label?: string
   disabled?: boolean
+  accessibilityLabel?: string
 } & TextInputProps
 
 const Input = ({
@@ -21,6 +22,7 @@ const Input = ({
   error,
   label,
   disabled = false,
+  accessibilityLabel,
   ...props
 }: InputProps) => {
   const [focus, setFocus] = useState(false)
@@ -39,7 +41,7 @@ const Input = ({
         testID="inputWrapper"
       >
         <S.Input
-          accessibilityLabel="input"
+          accessibilityLabel={accessibilityLabel}
           onFocus={() => setFocus(true)}
           onBlur={() => setFocus(false)}
           editable={!disabled}

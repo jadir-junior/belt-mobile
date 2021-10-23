@@ -5,6 +5,8 @@ import React, { useEffect, useState } from 'react'
 import { AppStack } from './AppStack'
 import { AuthStack } from './AuthStack'
 import { NavigationContainer } from '@react-navigation/native'
+import Toast from 'react-native-toast-message'
+import { toastConfig } from '../utils/toast/toast.config'
 import { useAuth } from '../contexts/Auth'
 
 export const Router = () => {
@@ -46,6 +48,7 @@ export const Router = () => {
   return (
     <NavigationContainer>
       {authData ? <AppStack /> : <AuthStack />}
+      <Toast config={toastConfig} ref={(ref) => Toast.setRef(ref)} />
     </NavigationContainer>
   )
 }

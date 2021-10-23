@@ -9,17 +9,21 @@ export type Tokens = {
 type ResponseUser = Omit<User, 'password'>
 
 export const getMe = async (): Promise<ResponseUser | undefined> => {
-  return await api.get('/auth/me')
+  return api.get('/auth/me')
 }
 
 export const uploadProfilePhoto = async (
   id: string,
   formData: FormData
 ): Promise<any> => {
-  return await api({
+  return api({
     method: 'post',
     url: `/auth/me/photo/${id}`,
     data: formData,
     headers: { 'Content-Type': 'multipart/form-data' }
   })
+}
+
+export const updateProfileUser = async (user: User) => {
+  return api.patch(`/auth/me/${user._id}`, user)
 }

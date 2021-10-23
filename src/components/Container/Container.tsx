@@ -1,15 +1,16 @@
 import * as S from './Container.styles'
 
+import { Keyboard, TouchableWithoutFeedbackProps } from 'react-native'
+
 import React from 'react'
-import { ViewProps } from 'react-native'
 
 export type ContainerProps = {
   children: React.ReactNode
-} & ViewProps
+} & TouchableWithoutFeedbackProps
 
 const Container = ({ children, ...props }: ContainerProps) => (
-  <S.Wrapper {...props} testID="container">
-    {children}
+  <S.Wrapper {...props} onPress={Keyboard.dismiss}>
+    <S.View testID="container">{children}</S.View>
   </S.Wrapper>
 )
 

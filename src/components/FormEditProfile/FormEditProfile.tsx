@@ -1,16 +1,15 @@
 import * as S from './FormEditProfile.styles'
 
-import { FileUpload, PhotoImageProps } from '../FileUpload/FileUpload'
+import { Controller, useForm } from 'react-hook-form'
 
-import AsyncStorage from '@react-native-async-storage/async-storage'
 import { Avatar } from '../Avatar/Avatar'
+import { Button } from '../Button/Button'
 import { COLORS } from '../../theme/theme'
+import { FileUpload } from '../FileUpload/FileUpload'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import { Input } from '../Input/Input'
 import React from 'react'
 import { User } from '../../types/user.type'
-import { createFormData } from '../../utils/form-data/form-data'
-import { uploadProfilePhoto } from '../../services/user.service'
 
 export type FormEditProfileProps = {
   email: string
@@ -18,7 +17,8 @@ export type FormEditProfileProps = {
   photo?: string
   name?: string
   position?: string
-  updatedPhoto: (user: User) => void
+  updatePhoto: (photo: string) => void
+  updateUser: (user: User) => void
 }
 
 const FormEditProfile = ({
@@ -27,12 +27,24 @@ const FormEditProfile = ({
   name,
   position,
   photo,
-  updatedPhoto
+  updatePhoto,
+  updateUser
 }: FormEditProfileProps) => {
+  const { control, handleSubmit } = useForm({
+    defaultValues: {
+      _id: _id,
+      email: email,
+      name: name,
+      position: position
+    }
+  })
+
   const selectedPhoto = async (photo: string) => {
-    const data = createFormData('file', photo)
-    const response: any = await uploadProfilePhoto(_id, data)
-    updatedPhoto(response.data)
+    updatePhoto(photo)
+  }
+
+  const submit = (data: User) => {
+    updateUser(data)
   }
 
   return (
@@ -47,7 +59,57 @@ const FormEditProfile = ({
           </FileUpload>
         </S.FileUploadWrapper>
       </S.UploadFileWrapper>
-      <Input label="Email" value={email} disabled />
+      <S.InputsWrapper>
+        <Controller
+          control={control}
+          name="email"
+          render={({ field: { value } }) => (
+            <Input
+              label="Email"
+              value={value}
+              accessibilityLabel="email"
+              disabled
+            />
+          )}
+        />
+        <S.InputWrapper>
+          <Controller
+            control={control}
+            name="name"
+            render={({ field: { value, onChange } }) => (
+              <Input
+                label="Nome"
+                placeholder="Nome"
+                accessibilityLabel="name"
+                value={value}
+                onChangeText={(value) => onChange(value)}
+              />
+            )}
+          />
+        </S.InputWrapper>
+        <S.InputWrapper>
+          <Controller
+            control={control}
+            name="position"
+            render={({ field: { value, onChange } }) => (
+              <Input
+                label="Cargo"
+                placeholder="Cargo"
+                accessibilityLabel="position"
+                value={value}
+                onChangeText={(value) => onChange(value)}
+              />
+            )}
+          />
+        </S.InputWrapper>
+        <S.ButtonWrapper>
+          <Button
+            title="Atualizar"
+            accessibilityLabel="update"
+            onPress={handleSubmit(submit)}
+          />
+        </S.ButtonWrapper>
+      </S.InputsWrapper>
     </S.Wrapper>
   )
 }

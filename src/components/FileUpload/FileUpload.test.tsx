@@ -12,6 +12,6 @@ describe('FileUpload', () => {
       </FileUpload>
     )
 
-    expect(getByLabelText(/fileupload/i)).toBeDefined()
+    expect(getByLabelText(/file upload/i)).toBeDefined()
   })
 })

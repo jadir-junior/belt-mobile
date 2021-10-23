@@ -40,7 +40,7 @@ const FileUpload = ({ onSelectPhoto, children }: FileUploadProps) => {
     <S.Wrapper
       onPress={handleChoosePhoto}
       activeOpacity={1}
-      accessibilityLabel="fileUpload"
+      accessibilityLabel="file upload"
     >
       <View>{children}</View>
     </S.Wrapper>
