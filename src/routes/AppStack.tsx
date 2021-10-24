@@ -24,7 +24,7 @@ const Drawer = createDrawerNavigator()
 
 const Root = () => (
   <Drawer.Navigator
-    drawerContent={(props) => <DrawerContent />}
+    drawerContent={(props) => <DrawerContent {...props} />}
     screenOptions={{
       headerTintColor: COLORS.PRIMARY,
       headerTitleStyle: {

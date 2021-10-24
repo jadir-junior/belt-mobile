@@ -1,21 +1,20 @@
 import * as S from './DrawerContent.styles'
 
-import { AppStackParamList } from '../../routes/AppStack'
 import { Divider } from '../Divider/Divider'
 import { DrawerFooter } from '../DrawerFooter/DrawerFooter'
+import { DrawerNavigationHelpers } from '@react-navigation/drawer/lib/typescript/src/types'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import { ListItem } from '../ListItem/ListItem'
-import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import React from 'react'
 import { UserInfo } from '../UserInfo/UserInfo'
-import { useNavigation } from '@react-navigation/core'
 import { useUser } from '../../contexts/user.context'
 
-type DrawerContentProps = NativeStackNavigationProp<AppStackParamList>
+type DrawerContentProps = {
+  navigation: DrawerNavigationHelpers
+}
 
-const DrawerContent = () => {
+const DrawerContent = ({ navigation }: DrawerContentProps) => {
   const { user } = useUser()
-  const navigation = useNavigation<DrawerContentProps>()
 
   return (
     <S.Wrapper>
@@ -31,7 +30,10 @@ const DrawerContent = () => {
           title="Perfil"
           accessibilityLabel="perfil"
           icon={<Icon name="account-outline" size={24} />}
-          onPress={() => navigation.navigate('Perfil')}
+          onPress={() => {
+            navigation.closeDrawer()
+            navigation.navigate('Perfil')
+          }}
         />
       </S.ListContent>
       <Divider />
