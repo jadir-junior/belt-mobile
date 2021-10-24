@@ -5,10 +5,11 @@ import {
   SignInProps
 } from '../../components/Auth/FormLogin/FormLogin'
 import { Keyboard, View } from 'react-native'
+import React, { useEffect } from 'react'
 
 import { Paragraph } from '../../components/Paragraph/Paragraph'
-import React from 'react'
 import { Title } from '../../components/Title/Title'
+import { Toaster } from '../../components/Toaster/Toaster.component'
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
 import { useAuth } from '../../contexts/Auth'
 
@@ -18,6 +19,19 @@ const LoginScreen = () => {
   const onSubmit = (payload: SignInProps) => {
     signIn(payload.email, payload.password)
   }
+
+  useEffect(() => {
+    if (errors) {
+      console.log(errors)
+      if (errors?.param === 'email') {
+        Toaster('error', 'Não existe esse email cadastrado')
+      }
+
+      if (errors?.param === 'password') {
+        Toaster('error', 'A senha esta incorreta')
+      }
+    }
+  }, [errors])
 
   return (
     <TouchableWithoutFeedback
