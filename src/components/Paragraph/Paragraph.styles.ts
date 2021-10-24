@@ -22,7 +22,7 @@ type ParagraphStyleProps = {
 export const Wrapper = styled.Text<ParagraphStyleProps>`
   ${({ color, weight }) => css`
     font-family: ${FONT_FAMILY.REGULAR};
-    font-size: 14px;
+    font-size: 16px;
     color: ${colorsTextModifiers(color)};
     letter-spacing: -0.7px;
     font-weight: ${weight === 'regular' ? 400 : 'bold'};
