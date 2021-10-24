@@ -1,5 +1,6 @@
 import { fireEvent, render, waitFor } from '../../utils/tests/test-utils'
 
+import { MockedNavigator } from '../../utils/tests/MockedScreen'
 import { ProfileEditScreen } from './ProfileEditScreen'
 import React from 'react'
 import { User } from '../../types/user.type'
@@ -22,7 +23,7 @@ describe('ProfileEditScreen', () => {
   it('should render default elements', async () => {
     const { getByText, getByLabelText } = render(
       <UserContext.Provider value={{ user, setUserStorageData }}>
-        <ProfileEditScreen />
+        <MockedNavigator component={ProfileEditScreen}></MockedNavigator>
       </UserContext.Provider>
     )
 
