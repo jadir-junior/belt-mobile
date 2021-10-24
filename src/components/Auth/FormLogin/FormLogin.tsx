@@ -5,7 +5,6 @@ import React, { useState } from 'react'
 
 import { Button } from '../../Button/Button'
 import { Error } from '../../../utils/errors/errors'
-import { ErrorText } from '../../ErrorText/ErrorText'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import { IconButton } from '../../IconButton/IconButton'
 import { Input } from '../../Input/Input'
@@ -84,14 +83,6 @@ const FormLogin = ({ onSubmit, error }: FormLoginProps) => {
           )}
         />
       </S.InputWrapper>
-      <S.ErrorWrapper>
-        {error?.param === 'email' && (
-          <ErrorText>Não existe esse email cadastrado</ErrorText>
-        )}
-        {error?.param === 'password' && (
-          <ErrorText>A senha esta incorreta</ErrorText>
-        )}
-      </S.ErrorWrapper>
       <S.ButtonWrapper>
         <Button
           title="Login"

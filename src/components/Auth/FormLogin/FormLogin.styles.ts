@@ -10,7 +10,3 @@ export const InputWrapper = styled.View`
 export const ButtonWrapper = styled.View`
   margin-top: 48px;
 `
-
-export const ErrorWrapper = styled.View`
-  align-items: center;
-`

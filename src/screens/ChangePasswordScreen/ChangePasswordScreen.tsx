@@ -10,7 +10,7 @@ import { Container } from '../../components/Container/Container'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { Paragraph } from '../../components/Paragraph/Paragraph'
 import React from 'react'
-import Toast from 'react-native-toast-message'
+import { Toaster } from '../../components/Toaster/Toaster.component'
 import { updateProfileUser } from '../../services/user.service'
 import { useNavigation } from '@react-navigation/core'
 import { useUser } from '../../contexts/user.context'
@@ -23,11 +23,7 @@ const ChangePasswordScreen = () => {
 
   const onSubmit = async (data: changePasswordDTO) => {
     updateProfileUser({ ...user, ...{ password: data.password } })
-    Toast.show({
-      type: 'success',
-      text1: 'Senha atualizada com sucesso',
-      topOffset: 40
-    })
+    Toaster('success', 'Senha atualizada com sucesso')
     navigation.pop()
   }
 

@@ -109,23 +109,4 @@ describe('FormLogin', () => {
 
     expect(inputPassword.props.secureTextEntry).toBe(true)
   })
-
-  it.skip('should try logged with user not exist', async () => {
-    const onSubmit = jest.fn()
-    const { getByText, getByLabelText } = render(
-      <FormLogin onSubmit={onSubmit} />
-    )
-
-    const button = getByText('Login')
-    const inputPassword = getByLabelText(/password/i)
-    const inputEmail = getByLabelText(/email/i)
-
-    fireEvent.changeText(inputEmail, 'john@email.com')
-    fireEvent.changeText(inputPassword, '123456')
-    fireEvent.press(button)
-
-    await waitFor(() => {
-      expect(getByText('Não existe esse email cadastrado')).toBeDefined()
-    })
-  })
 })
