@@ -9,6 +9,7 @@ import React, {
 } from 'react'
 
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import { Toaster } from '../components/Toaster/Toaster.component'
 import { configureAxiosHeaders } from '../services/api'
 
 type AuthContextData = {
@@ -60,8 +61,13 @@ const AuthProvider: FC = ({ children }) => {
   }
 
   const signOut = async (): Promise<void> => {
-    setAuthData(undefined)
-    await AsyncStorage.removeItem('@AuthData')
+    try {
+      setAuthData(undefined)
+      await AsyncStorage.removeItem('@AuthData')
+      await AsyncStorage.clear()
+    } catch (error) {
+      Toaster('error', error as string)
+    }
   }
 
   return (
