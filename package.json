@@ -88,7 +88,7 @@
     "expo-detox-hook": "^1.0.10",
     "husky": "^7.0.4",
     "jest-circus": "^27.3.1",
-    "jest-expo": "^42.1.0",
+    "jest-expo": "^48.0.2",
     "msw": "^0.35.0",
     "plop": "^2.7.6",
     "prettier": "^2.4.1",
